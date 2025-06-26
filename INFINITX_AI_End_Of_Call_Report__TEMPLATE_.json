@@ -1,0 +1,1074 @@
+{
+  "name": "INFINITX AI End Of Call Report [TEMPLATE]",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -3320,
+        -980
+      ],
+      "id": "c1aed62f-5c1a-420d-9423-ebdf31f756f4",
+      "name": "When Executed by AI Call Webhook"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "53abe924-6313-4d2f-ba94-43a3f4bfa0de",
+              "name": "call_id",
+              "value": "={{ $('When Executed by AI Call Webhook').item.json.body.call.call_id }}",
+              "type": "string"
+            },
+            {
+              "id": "327e18ef-95b6-4149-8241-4c19960837e5",
+              "name": "business_name",
+              "value": "={{ $('When Executed by AI Call Webhook').item.json.body.call.retell_llm_dynamic_variables.business_name }}",
+              "type": "string"
+            },
+            {
+              "id": "785e19fd-15d8-4683-966f-a10bfc3875d4",
+              "name": "full_name",
+              "value": "={{ $('When Executed by AI Call Webhook').item.json.body.call.retell_llm_dynamic_variables.full_name }}",
+              "type": "string"
+            },
+            {
+              "id": "738db31b-3e23-464d-a0a6-2543415a55dd",
+              "name": "phone",
+              "value": "={{ $('When Executed by AI Call Webhook').item.json.body.call.direction === 'inbound' ? $('When Executed by AI Call Webhook').item.json.body.call.from_number : $('When Executed by AI Call Webhook').item.json.body.call.to_number }}",
+              "type": "string"
+            },
+            {
+              "id": "c170cf37-2c30-4067-ad65-c6f8a6049b08",
+              "name": "email",
+              "value": "={{ $('When Executed by AI Call Webhook').item.json.body.call.retell_llm_dynamic_variables.email }}",
+              "type": "string"
+            },
+            {
+              "id": "04b332ee-df28-47a8-8824-3790ee832bd9",
+              "name": "ai_call_transcript",
+              "value": "={{ $('When Executed by AI Call Webhook').item.json.body.call.transcript }}",
+              "type": "string"
+            },
+            {
+              "id": "fa55812d-9690-4eb8-a896-cb8ae25a62e0",
+              "name": "ai_call_summary",
+              "value": "={{ $('When Executed by AI Call Webhook').item.json.body.call.call_analysis.call_summary }}",
+              "type": "string"
+            },
+            {
+              "id": "ece9f872-b606-4fc6-aaca-d458149a230c",
+              "name": "ai_call_type",
+              "value": "={{ $('When Executed by AI Call Webhook').item.json.body.call.direction }}",
+              "type": "string"
+            },
+            {
+              "id": "11bc5a91-ce04-4c1f-a84b-d17cd30dfb28",
+              "name": "contact_id",
+              "value": "={{ $json.body.call.retell_llm_dynamic_variables.contact_id }}",
+              "type": "string"
+            },
+            {
+              "id": "5b18ed28-c90d-4375-b1e2-fd5b09444b5a",
+              "name": "private_integration_token",
+              "value": "={{ $json.body.call.retell_llm_dynamic_variables.private_integration_token }}",
+              "type": "string"
+            },
+            {
+              "id": "9aeb8166-81b4-4d88-a031-cd16bef2ed46",
+              "name": "ai_call_timestamp",
+              "value": "={{ $json.body.call.start_timestamp }}",
+              "type": "number"
+            },
+            {
+              "id": "ab719a9f-d868-496c-9fc8-b7abd5b4090c",
+              "name": "ai_call_duration",
+              "value": "={{ $json.body.call.call_cost.total_duration_seconds }}",
+              "type": "number"
+            },
+            {
+              "id": "29a34fca-c6e2-4901-8199-5e170fcea8b9",
+              "name": "ai_call_outcome",
+              "value": "={{ $json.body.call.call_analysis.custom_analysis_data.ai_call_outcome }}",
+              "type": "string"
+            },
+            {
+              "id": "b62425aa-4bfa-4738-9c76-48ebb2cd4a6e",
+              "name": "ai_call_outcome_reason",
+              "value": "={{ $json.body.call.call_analysis.custom_analysis_data.ai_call_outcome_reason }}",
+              "type": "string"
+            },
+            {
+              "id": "871a5166-72d7-4928-81ba-d33b33844151",
+              "name": "ai_call_appointment_datetime",
+              "value": "={{ $json.body.call.call_analysis.custom_analysis_data.ai_call_appointment_datetime }}",
+              "type": "string"
+            },
+            {
+              "id": "9e781aa3-d9d9-4671-8fdc-0c932da732ad",
+              "name": "ai_call_follow_up_datetime",
+              "value": "={{ $json.body.call.call_analysis.custom_analysis_data.ai_call_follow_up_datetime }}",
+              "type": "string"
+            },
+            {
+              "id": "913518e9-e64a-4643-95c4-16385480bb1f",
+              "name": "ai_call_contact_name",
+              "value": "={{ $json.body.call.call_analysis.custom_analysis_data.ai_call_contact_name }}",
+              "type": "string"
+            },
+            {
+              "id": "cc2117c7-e99e-4c23-8f69-75d87e4f3c15",
+              "name": "ai_call_contact_phone",
+              "value": "={{ $json.body.call.call_analysis.custom_analysis_data.ai_call_contact_phone }}",
+              "type": "string"
+            },
+            {
+              "id": "d5df15c8-c04c-414c-9459-938fc2347480",
+              "name": "ai_call_contact_email",
+              "value": "={{ $json.body.call.call_analysis.custom_analysis_data.ai_call_contact_email }}",
+              "type": "string"
+            },
+            {
+              "id": "79c19aaf-f7f3-47bc-844e-dea0f1e86c8f",
+              "name": "ai_call_improvement",
+              "value": "={{ $json.body.call.call_analysis.custom_analysis_data.ai_call_improvement }}",
+              "type": "string"
+            },
+            {
+              "id": "4dcc33a5-c8e1-47d0-bc54-365733e33186",
+              "name": "ai_call_improvement_reason",
+              "value": "={{ $json.body.call.call_analysis.custom_analysis_data.ai_call_improvement_reason }}",
+              "type": "string"
+            },
+            {
+              "id": "b47504a6-0f61-4126-8fb8-fb5a9b9063bb",
+              "name": "ai_call_detected",
+              "value": "={{ $json.body.call.call_analysis.custom_analysis_data.ai_call_detected }}",
+              "type": "string"
+            },
+            {
+              "id": "63182fc4-f463-4e78-b7ad-8e25fc302c06",
+              "name": "ai_call_ended_reason",
+              "value": "={{ $json.body.call.disconnection_reason }}",
+              "type": "string"
+            },
+            {
+              "id": "594a23be-1048-4372-bcd1-c5651420d44d",
+              "name": "ai_call_recording",
+              "value": "={{ $json.body.call.recording_url }}",
+              "type": "string"
+            },
+            {
+              "id": "98f2d67d-3095-4df9-8ac0-b489dd39b181",
+              "name": "voice_ai_agent_name",
+              "value": "={{ $json.body.call.retell_llm_dynamic_variables.voice_ai_agent_name }}",
+              "type": "string"
+            },
+            {
+              "id": "50c1c5aa-892b-4417-89ff-6bd8ac97b26b",
+              "name": "ai_call_cost",
+              "value": "={{ $json.body.call.call_cost.total_duration_unit_price }}",
+              "type": "number"
+            },
+            {
+              "id": "407d0e24-0266-4a40-a22a-21db23844419",
+              "name": "to_number",
+              "value": "={{ $('When Executed by AI Call Webhook').item.json.body.call.to_number }}",
+              "type": "string"
+            },
+            {
+              "id": "7af2b62c-41ec-423c-ad4c-856b770833ac",
+              "name": "from_number",
+              "value": "={{ $('When Executed by AI Call Webhook').item.json.body.call.from_number }}",
+              "type": "string"
+            },
+            {
+              "id": "4132ed0e-4535-4b14-9b7a-71671714ab2f",
+              "name": "retell_api_key",
+              "value": "={{ $('When Executed by AI Call Webhook').item.json.body.call.retell_llm_dynamic_variables.voice_ai_agent_api_key }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3100,
+        -980
+      ],
+      "id": "54c6568c-7e65-479f-b379-c00a80c58fb0",
+      "name": "Set Fields"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.retellai.com/get-agent/{{ $('When Executed by AI Call Webhook').item.json.body.call.agent_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Fields').item.json.retell_api_key }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2880,
+        -980
+      ],
+      "id": "929618b6-dcac-4591-bffc-03842dacac47",
+      "name": "Get Retell Agent",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Fields').item.json.private_integration_token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"locationId\": \"{{ $('When Executed by AI Call Webhook').item.json.body.call.retell_llm_dynamic_variables.location_id }}\",\n  \"page\": 1,\n  \"pageLimit\": 20,\n  \"filters\": [\n    {\n      \"field\": \"phone\",\n      \"operator\": \"eq\",\n      \"value\": \"{{ $('Set Fields').item.json.phone }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2580,
+        -980
+      ],
+      "id": "42717f09-3550-435a-8326-b122f4e57613",
+      "name": "Search Contacts GHL"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Set Fields').item.json.contact_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Fields').item.json.private_integration_token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"key\": \"ai_call_type\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_type }}\"\n    },\n    {\n      \"key\": \"ai_call_outcome\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_outcome }}\"\n    },\n    {\n      \"key\": \"ai_call_outcome_reason\",\n      \"field_value\": {{ JSON.stringify($('Set Fields').item.json.ai_call_outcome_reason) }}\n    },\n    {\n      \"key\": \"ai_call_transcript\",\n      \"field_value\": {{ JSON.stringify($('Set Fields').item.json.ai_call_transcript) }}\n    },\n    {\n      \"key\": \"ai_call_summary\",\n      \"field_value\": {{ JSON.stringify($('Set Fields').item.json.ai_call_summary) }}\n    },\n    {\n      \"key\": \"ai_call_recording\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_recording }}\"\n    },\n    {\n      \"key\": \"ai_call_timestamp\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_timestamp }}\"\n    },\n    {\n      \"key\": \"ai_call_appointment_datetime\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_appointment_datetime }}\"\n    },\n    {\n      \"key\": \"ai_call_follow_up_datetime\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_follow_up_datetime }}\"\n    },\n    {\n      \"key\": \"ai_call_contact_name\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_contact_name }}\"\n    },\n    {\n      \"key\": \"ai_call_contact_email\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_contact_email }}\"\n    },\n    {\n      \"key\": \"ai_call_contact_phone\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_contact_phone }}\"\n    },\n    {\n      \"key\": \"ai_call_detected\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_detected }}\"\n    },\n    {\n      \"key\": \"ai_call_improvement\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_improvement }}\"\n    },\n    {\n      \"key\": \"ai_call_improvement_reason\",\n      \"field_value\": {{ JSON.stringify($('Set Fields').item.json.ai_call_improvement_reason) }}\n    },\n    {\n      \"key\": \"ai_call_duration\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_duration }}\"\n    },\n    {\n      \"key\": \"ai_call_ended_reason\",\n      \"field_value\": \"{{ $('Set Fields').item.json.ai_call_ended_reason }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2340,
+        -980
+      ],
+      "id": "feaf2cbf-810f-42e3-82f1-5215619f2041",
+      "name": "Update Contact GHL"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Set Fields').item.json.contact_id }}/notes",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Fields').item.json.private_integration_token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "body",
+              "value": "=AI Call Type:\n{{ $('Set Fields').item.json.ai_call_type }}\n\nAI Call Outcome\n{{ $('Set Fields').item.json.ai_call_outcome }}\n \nAI Call Outcome Reason\n{{ JSON.stringify($('Set Fields').item.json.ai_call_outcome_reason) }}\n\nAI Call Transcript\n{{ JSON.stringify($('Set Fields').item.json.ai_call_transcript) }}\n\nAI Call Summary\n{{ JSON.stringify($('Set Fields').item.json.ai_call_summary) }}\n\nAI Call Recording\n{{ $('Set Fields').item.json.ai_call_recording }}\n\nAI Call Timestamp\n{{ $('Set Fields').item.json.ai_call_timestamp }}\n\nAI Call Appointment DateTime\n{{ $('Set Fields').item.json.ai_call_appointment_datetime }}\n\nAI Call Follow Up DateTime:\n{{ $('Set Fields').item.json.ai_call_follow_up_datetime }}\n\nAI Call Contact Name:\n{{ $('Set Fields').item.json.ai_call_contact_name }}\n\nAI Call Contact Email:\n{{ $('Set Fields').item.json.ai_call_contact_email }}\n\nAI Call Contact Phone:\n{{ $('Set Fields').item.json.ai_call_contact_phone }}\n\nAI Call Detected:\n{{ $('Set Fields').item.json.ai_call_detected }}\n\nAI Call Improvement:\n{{ $('Set Fields').item.json.ai_call_improvement }}\n\nAI Call Improvement Reason:\n{{ JSON.stringify($('Set Fields').item.json.ai_call_improvement_reason) }}\n\nAI Call Duration:\n{{ $('Set Fields').item.json.ai_call_duration }}\n\nAI Call Ended Reason:\n{{ $('Set Fields').item.json.ai_call_ended_reason }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bf9bcae4-ca1a-42c3-be2b-8e71dd20e058",
+      "name": "Create Note GHL",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2080,
+        -980
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Set Fields').item.json.contact_id }}/tags",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Fields').item.json.private_integration_token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"tags\": [\n    \"{{ $('Set Fields').item.json.ai_call_outcome}} (call)\",\n    \"{{ \n  [\"dna\", \"voicemail\", \"hang_up\"].includes(\n    $('Set Fields').item.json.ai_call_outcome\n  ) \n  ? \"dna\" \n  : \"answered\" \n}}\"\n  ]\n}",
+        "options": {}
+      },
+      "id": "a8784fc0-3919-467d-87e1-7a069266ad24",
+      "name": "Add Tag GHL",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1820,
+        -980
+      ],
+      "retryOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get contact information\nconst contactEmail = $('Update Contact GHL').item.json.contact.email;\nconst contactFirstName = $('Update Contact GHL').item.json.contact.firstName;\nconst contactLastName = $('Update Contact GHL').item.json.contact.lastName;\n\n// Get AI collected information\nconst aiEmail = $('When Executed by AI Call Webhook').item.json.body.call.call_analysis.custom_analysis_data.ai_call_contact_email;\nconst aiName = $('When Executed by AI Call Webhook').item.json.body.call.call_analysis.custom_analysis_data.ai_call_contact_name;\n\n// Initialize update object and flag\nlet updateNeeded = false;\nlet updateBody = {};\n\n// Check if name needs to be updated\n// Condition: Contact name is empty OR is the default \"new\" placeholder AND AI collected a valid name\nif ((contactFirstName === null || contactFirstName === undefined || contactFirstName === \"\" || contactFirstName === \"None\" || contactFirstName === \"new\") && \n    (aiName !== null && aiName !== undefined && aiName !== \"\" && aiName !== \"none\" && aiName !== \"None\")) {\n  updateBody.name = aiName;\n  updateNeeded = true;\n}\n\n// Check if email needs to be updated\n// Condition: Contact email is empty AND AI collected a valid email\nif ((contactEmail === null || contactEmail === undefined || contactEmail === \"\" || contactEmail === \"None\") && \n    (aiEmail !== null && aiEmail !== undefined && aiEmail !== \"\" && aiEmail !== \"none\" && aiEmail !== \"None\")) {\n  updateBody.email = aiEmail;\n  updateNeeded = true;\n}\n\n// Return consistent structure with output key\nif (updateNeeded) {\n  // Convert the JSON object to a string\n  return [{ output: JSON.stringify(updateBody) }];\n} else {\n  // Return \"no update\" as a string\n  return [{ output: \"no update\" }];\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1580,
+        -980
+      ],
+      "id": "12305a42-0d03-426c-aaec-68355c57f7a2",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9d18d0d2-4dcc-49ed-a162-76a570461696",
+              "name": "name",
+              "value": "={{ $('Update Contact GHL').item.json.contact.fullNameLowerCase }}",
+              "type": "string"
+            },
+            {
+              "id": "3fb2211c-4f2e-4f6a-be2a-170529fc5f3a",
+              "name": "contact_id",
+              "value": "={{ $('Update Contact GHL').item.json.contact.id }}",
+              "type": "string"
+            },
+            {
+              "id": "13357cf8-3ffb-4dc2-804b-f7a278dcb70f",
+              "name": "email",
+              "value": "={{ $('Update Contact GHL').item.json.contact.emailLowerCase }}",
+              "type": "string"
+            },
+            {
+              "id": "de926c48-0db2-4f4d-bdb6-ceb3ba85ac8b",
+              "name": "phone",
+              "value": "={{ $('Update Contact GHL').item.json.contact.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "04382d7c-e9ee-4b54-9d30-234e12958a42",
+              "name": "country",
+              "value": "={{ $('Update Contact GHL').item.json.contact.country }}",
+              "type": "string"
+            },
+            {
+              "id": "cacc7c3a-2d2b-4b8d-bbbf-1a5f15a49ff2",
+              "name": "tags",
+              "value": "={{ $('Add Tag GHL').item.json.tags }}",
+              "type": "array"
+            },
+            {
+              "id": "e243fcac-f5cf-4fa0-9844-8c3cce0f763c",
+              "name": "company_name",
+              "value": "={{ $('Update Contact GHL').item.json.contact.companyName }}",
+              "type": "string"
+            },
+            {
+              "id": "ad72b7a7-8bf6-4bad-b338-3accb5ef5e32",
+              "name": "call_id",
+              "value": "={{ $('Set Fields').item.json.call_id }}",
+              "type": "string"
+            },
+            {
+              "id": "f134a1bb-b608-40cb-b1ee-e9ce7836346f",
+              "name": "ai_call_transcript",
+              "value": "={{ $('Set Fields').item.json.ai_call_transcript }}",
+              "type": "string"
+            },
+            {
+              "id": "244dc529-b442-4381-9d9b-75f834fcc391",
+              "name": "ai_call_summary",
+              "value": "={{ $('Set Fields').item.json.ai_call_summary }}",
+              "type": "string"
+            },
+            {
+              "id": "ceaba24d-1954-4361-9316-7fe0efd33378",
+              "name": "ai_call_type",
+              "value": "={{ $('Set Fields').item.json.ai_call_type }}",
+              "type": "string"
+            },
+            {
+              "id": "684d9174-8108-4b00-a806-1f0b915483ac",
+              "name": "ai_call_duration",
+              "value": "={{ $('Set Fields').item.json.ai_call_duration }}",
+              "type": "string"
+            },
+            {
+              "id": "c984594f-8701-45e0-b92f-de57f753d5b4",
+              "name": "ai_call_outcome",
+              "value": "={{ $('Set Fields').item.json.ai_call_outcome }}",
+              "type": "string"
+            },
+            {
+              "id": "99c17b97-f4a7-43e2-a6db-7f3ead4b577c",
+              "name": "ai_call_outcome_reason",
+              "value": "={{ $('Set Fields').item.json.ai_call_outcome_reason }}",
+              "type": "string"
+            },
+            {
+              "id": "a0f04f61-8a1f-431a-81f0-f5e25ab295ed",
+              "name": "ai_call_appointment_datetime",
+              "value": "={{ $('Set Fields').item.json.ai_call_appointment_datetime }}",
+              "type": "string"
+            },
+            {
+              "id": "08d83d08-5531-4902-b4cc-1e63b44655ac",
+              "name": "ai_call_follow_up_datetime",
+              "value": "={{ $('Set Fields').item.json.ai_call_follow_up_datetime }}",
+              "type": "string"
+            },
+            {
+              "id": "5b217c01-b71b-48d4-8c91-5a1af2f82ab4",
+              "name": "ai_call_contact_name",
+              "value": "={{ $('Set Fields').item.json.ai_call_contact_name }}",
+              "type": "string"
+            },
+            {
+              "id": "71fbdd94-ed0d-43c6-92c2-2f5877fecfcc",
+              "name": "ai_call_contact_phone",
+              "value": "={{ $('Set Fields').item.json.ai_call_contact_phone }}",
+              "type": "string"
+            },
+            {
+              "id": "f70b99b2-6b5c-428d-8e57-08420b0c407a",
+              "name": "ai_call_contact_email",
+              "value": "={{ $('Set Fields').item.json.ai_call_contact_email }}",
+              "type": "string"
+            },
+            {
+              "id": "9ed07939-54a6-4e8b-83df-a2f432c63ca3",
+              "name": "ai_call_improvement",
+              "value": "={{ $('Set Fields').item.json.ai_call_improvement }}",
+              "type": "string"
+            },
+            {
+              "id": "97d091b3-4360-4579-848c-c7aea8ef4930",
+              "name": "ai_call_improvement_reason",
+              "value": "={{ $('Set Fields').item.json.ai_call_improvement_reason }}",
+              "type": "string"
+            },
+            {
+              "id": "6908a627-b436-4fcc-870a-17cb53e5b5bb",
+              "name": "ai_call_detected",
+              "value": "={{ $('Set Fields').item.json.ai_call_detected }}",
+              "type": "string"
+            },
+            {
+              "id": "92005bce-bddf-4f30-9354-37fb40dddd91",
+              "name": "ai_call_ended_reason",
+              "value": "={{ $('Set Fields').item.json.ai_call_ended_reason }}",
+              "type": "string"
+            },
+            {
+              "id": "4ec9e3d0-4a8b-470c-9d8f-32b99301a88e",
+              "name": "ai_call_recording",
+              "value": "={{ $('Set Fields').item.json.ai_call_recording }}",
+              "type": "string"
+            },
+            {
+              "id": "149f9be3-3735-4c9f-8e3b-a8b84d80edbf",
+              "name": "voice_ai_agent_name",
+              "value": "={{ $('Set Fields').item.json.voice_ai_agent_name }}",
+              "type": "string"
+            },
+            {
+              "id": "a9434ef1-5f43-40c4-bbb5-685a363f11a3",
+              "name": "ai_call_cost",
+              "value": "={{ $('Set Fields').item.json.ai_call_cost.round(2).toString() }}",
+              "type": "number"
+            },
+            {
+              "id": "ef69c310-13a1-4672-b29c-5239e85de43a",
+              "name": "Timestamp",
+              "value": "={{ $now }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1380,
+        -980
+      ],
+      "id": "67cb3832-c831-4f7d-9702-ca22bc8f8d0d",
+      "name": "Set Fields For Tracking"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{YOUR GOOGLE SHEET ID}}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "AI Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1tktbZSWbFMCMshasS9d_ZHueT7axtDsh5RnfCLql1aI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $('Set Fields For Tracking').item.json.name }}",
+            "Date and Time": "={{$('Set Fields For Tracking').item.json.Timestamp.replace('T', ' ').split('.')[0]}}",
+            "Email": "={{ $('Set Fields For Tracking').item.json.email }}",
+            "Number": "={{ $('Set Fields For Tracking').item.json.phone }}",
+            "Call Type": "={{ $('Set Fields For Tracking').item.json.ai_call_type }}",
+            "Call Duration (seconds)": "={{ $('Set Fields For Tracking').item.json.ai_call_duration }}",
+            "Call Outcome": "={{ $('Set Fields For Tracking').item.json.ai_call_outcome }}",
+            "Call Outcome Reason": "={{ $('Set Fields For Tracking').item.json.ai_call_outcome_reason }}",
+            "Appointment Date Time": "={{ $('Set Fields For Tracking').item.json.ai_call_appointment_datetime }}",
+            "Follow Up Date Time": "={{ $('Set Fields For Tracking').item.json.ai_call_follow_up_datetime }}",
+            "Call Summary": "={{ $('Set Fields For Tracking').item.json.ai_call_summary }}",
+            "Call Recording": "={{ $('Set Fields For Tracking').item.json.ai_call_recording }}",
+            "Call Transcript": "={{ $('Set Fields For Tracking').item.json.ai_call_transcript }}",
+            "Call Cost": "={{ $('Set Fields For Tracking').item.json.ai_call_cost }}",
+            "AI Detection": "={{ $('Set Fields For Tracking').item.json.ai_call_detected }}",
+            "AI Improvement ": "={{ $('Set Fields For Tracking').item.json.ai_call_improvement }}",
+            "AI Improvement Reason": "={{ $('Set Fields For Tracking').item.json.ai_call_improvement_reason }}",
+            "Assistant Name": "={{ $('Set Fields For Tracking').item.json.voice_ai_agent_name }}",
+            "End Call Reson": "={{ $('Set Fields For Tracking').item.json.ai_call_ended_reason }}",
+            "Call Duration (Minutes)": "={{ $('Set Fields For Tracking').item.json.ai_call_duration }}",
+            "Call ID": "={{ $('Set Fields For Tracking').item.json.call_id }}",
+            "Number Of Calls": "1"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Date and Time",
+              "displayName": "Date and Time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call Type",
+              "displayName": "Call Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call Duration (seconds)",
+              "displayName": "Call Duration (seconds)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call Outcome",
+              "displayName": "Call Outcome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call Outcome Reason",
+              "displayName": "Call Outcome Reason",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Appointment Date Time",
+              "displayName": "Appointment Date Time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Follow Up Date Time",
+              "displayName": "Follow Up Date Time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call Summary",
+              "displayName": "Call Summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call Recording",
+              "displayName": "Call Recording",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call Transcript",
+              "displayName": "Call Transcript",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call Cost",
+              "displayName": "Call Cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "AI Detection",
+              "displayName": "AI Detection",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "AI Improvement ",
+              "displayName": "AI Improvement ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "AI Improvement Reason",
+              "displayName": "AI Improvement Reason",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call ID",
+              "displayName": "Call ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "End Call Reson",
+              "displayName": "End Call Reson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Assistant Name",
+              "displayName": "Assistant Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Call Duration (Minutes)",
+              "displayName": "Call Duration (Minutes)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Number Of Calls",
+              "displayName": "Number Of Calls",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Prompt Used",
+              "displayName": "Prompt Used",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Coaching Ideal",
+              "displayName": "Coaching Ideal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1160,
+        -980
+      ],
+      "id": "a9186699-4272-4687-a2fc-1cb24adffd99",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "A6IQYss6hkOiCdiq",
+          "name": "InfinitX Sheet Credential"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Search Contacts GHL').item.json.contacts[0].id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Fields').item.json.private_integration_token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('Code').item.json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -700,
+        -960
+      ],
+      "id": "073e93d7-4fba-44f9-abf7-352242a8523a",
+      "name": "Update Contact Info"
+    },
+    {
+      "parameters": {
+        "content": "## 👽 Make sure I Look Right - Click Refresh !!!",
+        "height": 80,
+        "width": 370
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1260,
+        -1100
+      ],
+      "id": "f1dc8257-97bb-414d-881a-72a7d4dd5005",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "66f75201-beec-4cd0-9bf1-05798ccc8c72",
+              "leftValue": "={{ $('Code').item.json.output }}",
+              "rightValue": "no update",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -960,
+        -980
+      ],
+      "id": "9b4b3c28-9376-4fc4-8875-0c7458bfa60a",
+      "name": "If"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by AI Call Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields": {
+      "main": [
+        [
+          {
+            "node": "Get Retell Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Retell Agent": {
+      "main": [
+        [
+          {
+            "node": "Search Contacts GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Contacts GHL": {
+      "main": [
+        [
+          {
+            "node": "Update Contact GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Contact GHL": {
+      "main": [
+        [
+          {
+            "node": "Create Note GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Note GHL": {
+      "main": [
+        [
+          {
+            "node": "Add Tag GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Tag GHL": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Set Fields For Tracking",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields For Tracking": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Update Contact Info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d0030b31-354f-4a8f-b062-72ea46323dd1",
+  "meta": {
+    "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
+  },
+  "id": "5d9x4UZ98ZfZ1TlD",
+  "tags": []
+}

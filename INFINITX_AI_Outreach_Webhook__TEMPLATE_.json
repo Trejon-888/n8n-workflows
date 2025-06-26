@@ -1,0 +1,3684 @@
+{
+  "name": "INFINITX AI Outreach Webhook [TEMPLATE]",
+  "nodes": [
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Webhook').item.json.body.customData['Event Name'] }}",
+                    "rightValue": "rvm_1_infinitx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "e002ad16-bbdb-4da2-ac5f-1aa0e8a04fd0"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "rvm_1_infinitx"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1b4924a7-d246-4ece-92d2-da0f36120bbd",
+                    "leftValue": "={{ $('Webhook').item.json.body.customData['Event Name'] }}",
+                    "rightValue": "rvm_2_infinitx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "rvm_2_infinitx"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "77753795-fb5d-4180-b2d9-1071168c5d48",
+                    "leftValue": "={{ $('Webhook').item.json.body.customData['Event Name'] }}",
+                    "rightValue": "rvm_3_infinitx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "rvm_3_infinitx"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "35390028-5a75-4384-80cc-3ada5c3ebb9e",
+                    "leftValue": "={{ $('Webhook').item.json.body.customData['Event Name'] }}",
+                    "rightValue": "sms_1_infinitx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "sms_1_infinitx"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ba4fb98a-cb1f-4ec5-ab06-8cc97e45821c",
+                    "leftValue": "={{ $('Webhook').item.json.body.customData['Event Name'] }}",
+                    "rightValue": "sms_2_infinitx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "sms_2_infinitx"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0446a29f-34d6-4e85-84c2-edb0c24b80ce",
+                    "leftValue": "={{ $('Webhook').item.json.body.customData['Event Name'] }}",
+                    "rightValue": "sms_3_infinitx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "sms_3_infinitx"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -3220,
+        700
+      ],
+      "id": "a4fcfd96-8664-43bb-8b79-d1cd4baa8094",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/conversations/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData['Private Integration Token'] }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"type\": \"SMS\",\n  \"contactId\": \"{{ $('Webhook').item.json.body.contact_id }}\",\n  \"message\": {{ JSON.stringify($('SMS 1 Spintax').item.json['SMS 1 Spintax']) }},\n  \"fromNumber\": \"{{ $('Webhook').item.json.body['Assigned Phone Number'] }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2180,
+        440
+      ],
+      "id": "88e16643-d84a-4fa2-a8b2-392ab080464a",
+      "name": "Send SMS 1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Webhook').item.json.body.contact_id }}/tags",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData['Private Integration Token'] }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"tags\": [\n    \"sms 1 sent\"\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1960,
+        440
+      ],
+      "id": "a7448365-85ef-4ff5-9775-2a83c697cd94",
+      "name": "Add Tag SMS 1 Sent"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Webhook').item.json.body.contact_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData['Private Integration Token'] }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"id\": \"{{ $('Webhook').item.json.body.customData['Conversation ID'] }}\",\n      \"key\": \"Conversation ID\",\n      \"field_value\": \"{{ $('Send SMS 1').item.json.conversationId }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1720,
+        440
+      ],
+      "id": "4a660756-40d6-41ba-a9f2-0bf43d89162e",
+      "name": "Update Conversation ID"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Webhook').item.json.body.contact_id }}/tags",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData['Private Integration Token'] }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"tags\": [\n    \"sms 2 sent\"\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1960,
+        660
+      ],
+      "id": "de8ff204-5d55-4020-ab9b-223d38c014e4",
+      "name": "Add Tag SMS 2 Sent"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Webhook').item.json.body.contact_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData['Private Integration Token'] }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"id\": \"{{ $('Webhook').item.json.body.customData['Conversation ID'] }}\",\n      \"key\": \"Conversation ID\",\n      \"field_value\": \"{{ $('Send SMS 2').item.json.conversationId }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1720,
+        660
+      ],
+      "id": "6776c2f0-e271-4b15-b1fe-b3e822bfd07e",
+      "name": "Update Conversation ID 2"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "a35c74da-7f93-4bf6-8200-dfdac012aaaf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -7220,
+        780
+      ],
+      "id": "13e18bcc-fb23-4266-ae9b-cacb5a3e9055",
+      "name": "Webhook",
+      "webhookId": "a35c74da-7f93-4bf6-8200-dfdac012aaaf"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "10ff319f-7b29-46f9-a1cb-d21b768a19c3",
+              "name": "Authorization",
+              "value": "={{ $json.body.customData['Private Integration Token'] }}",
+              "type": "string"
+            },
+            {
+              "id": "ce3377ae-e394-4739-a8dd-d099b02ee1d2",
+              "name": "locationId",
+              "value": "={{ $json.body.location.id }}",
+              "type": "string"
+            },
+            {
+              "id": "65dd36bb-645c-4aac-8135-952b822b77cd",
+              "name": "Account Timezone",
+              "value": "={{ YOUR ACCOUNT TIME ZONE America/New_York for example }}",
+              "type": "string"
+            },
+            {
+              "id": "96b9ae16-deb6-4029-88e4-22f8c4e2661c",
+              "name": "to_number",
+              "value": "={{ $('Webhook').item.json.body.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "1c8611cd-5f66-4f6e-b208-bfa2c1845280",
+              "name": "from_number",
+              "value": "={{ $('Webhook').item.json.body['Assigned Phone Number'] }}",
+              "type": "string"
+            },
+            {
+              "id": "fb044596-e5e4-4acc-bc2c-10e9b795533c",
+              "name": "current_datetime",
+              "value": "={{ $now.setZone($json.placeholders.custom_values.account_timezone) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -6540,
+        760
+      ],
+      "id": "97782b3a-9af6-4300-af8c-49d08a68a2b8",
+      "name": "Set Account Fields"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/conversations/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData['Private Integration Token'] }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"type\": \"SMS\",\n  \"contactId\": \"{{ $('Webhook').item.json.body.contact_id }}\",\n  \"message\": {{ JSON.stringify($('SMS 3 Spintax').item.json['SMS 3 Spintax'] ) }},\n  \"fromNumber\": \"{{ $('Webhook').item.json.body['Assigned Phone Number'] }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2200,
+        880
+      ],
+      "id": "f0b8cfbb-859d-4272-8dbf-a172bcdadf84",
+      "name": "Send SMS 3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Webhook').item.json.body.contact_id }}/tags",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData['Private Integration Token'] }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"tags\": [\n    \"sms 3 sent\"\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1940,
+        880
+      ],
+      "id": "f3a4267f-38be-4592-9f5f-f1c773ffd538",
+      "name": "Add Tag SMS 3 Sent"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/conversations/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData['Private Integration Token'] }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"type\": \"SMS\",\n  \"contactId\": \"{{ $('Webhook').item.json.body.contact_id }}\",\n  \"message\": {{ JSON.stringify($('SMS 2 Spintax').item.json['SMS 2 Spintax'] ) }},\n  \"fromNumber\": \"{{ $('Webhook').item.json.body['Assigned Phone Number'] }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2180,
+        660
+      ],
+      "id": "3afc9c41-79c9-4ac1-b6e1-9ffd3d60c132",
+      "name": "Send SMS 2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d9de026d-8ccb-4111-a1d4-d25bca5dd081",
+              "name": "SMS 2 Spintax",
+              "value": "={{ PASTE SPINTAX IN HERE - YOU GET THIS EMAILED TO YOU - FOLLOW SOP - MESSAGE MUST BE UNDER 150 WORDS }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2440,
+        660
+      ],
+      "id": "1cbf0724-5f23-4998-864c-ce7585558605",
+      "name": "SMS 2 Spintax"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d9de026d-8ccb-4111-a1d4-d25bca5dd081",
+              "name": "SMS 1 Spintax",
+              "value": "={{ PASTE SPINTAX IN HERE - YOU GET THIS EMAILED TO YOU - FOLLOW SOP - MESSAGE MUST BE UNDER 150 WORDS }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2440,
+        440
+      ],
+      "id": "cb080ab8-0424-4547-8963-53715eb4bc9c",
+      "name": "SMS 1 Spintax"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d9de026d-8ccb-4111-a1d4-d25bca5dd081",
+              "name": "SMS 3 Spintax",
+              "value": "={{ PASTE SPINTAX IN HERE - YOU GET THIS EMAILED TO YOU - FOLLOW SOP - MESSAGE MUST BE UNDER 150 WORDS }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2440,
+        880
+      ],
+      "id": "0d7ea453-61a2-49cf-a72d-c1ca7699cd41",
+      "name": "SMS 3 Spintax"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{YOUR GOOGLE SHEET ID}}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "AI TEXT SENT",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T09BY4jiBZ80vEi9mMF4pXTXR3TfSCxEP2YLfY_pbRM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{$json.contact.dateUpdated.replace('T', ' ').split('.')[0]}}",
+            "Contact ID": "={{ $('Search Contacts GHL2').item.json.contacts[0].id }}",
+            "Lead Name": "={{ $('Search Contacts GHL2').item.json.contacts[0].firstNameLowerCase + \" \" + $('Search Contacts GHL2').item.json.contacts[0].lastNameLowerCase}}",
+            "Lead Phone": "={{ $('Set Account Fields').item.json.to_number }}",
+            "Business Name": "={{ $('Search Contacts GHL2').item.json.contacts[0].companyName }}",
+            "Tags Applied": "={{ $('SMS Cadence 3 Tracking').item.json['Tags Applied'] }}",
+            "Response Channel": "={{ $('SMS Cadence 3 Tracking').item.json['Response Channel'] }}",
+            "Lead Email": "={{ $('Search Contacts GHL2').item.json.contacts[0].email }}",
+            "Text Cadence # ": "={{ $('SMS Cadence 3 Tracking').item.json['Text Cadence #'] }}",
+            "Spintax Text Variant": "={{ $('SMS Cadence 3 Tracking').item.json['Spintax Text Variant'] }}",
+            "Spintax Text Cadence Content": "={{ $('SMS Cadence 3 Tracking').item.json['Spintax Cadence Content'] }}",
+            "Text Sent Cost": "={{ $('SMS Cadence 3 Tracking').item.json['Text Sent Cost'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact ID",
+              "displayName": "Contact ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead Name",
+              "displayName": "Lead Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead Phone",
+              "displayName": "Lead Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Lead Email",
+              "displayName": "Lead Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Business Name",
+              "displayName": "Business Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Response Channel",
+              "displayName": "Response Channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Text Cadence # ",
+              "displayName": "Text Cadence # ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Spintax Text Cadence Content",
+              "displayName": "Spintax Text Cadence Content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Spintax Text Variant",
+              "displayName": "Spintax Text Variant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tags Applied",
+              "displayName": "Tags Applied",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Text Sent Cost",
+              "displayName": "Text Sent Cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -600,
+        860
+      ],
+      "id": "0aa82782-27ca-4680-aff6-cc76846264fe",
+      "name": "Update AI (Text Sent) Channel Data Tracking2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "A6IQYss6hkOiCdiq",
+          "name": "InfinitX Sheet Credential"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7e420e88-3df4-4b30-b655-7bc18143a1c1",
+              "name": "Response Channel",
+              "value": "SMS",
+              "type": "string"
+            },
+            {
+              "id": "9f8d6145-4edc-4e28-b998-fb4a61ee8bf8",
+              "name": "Text Cadence #",
+              "value": "SMS 1 spintax",
+              "type": "string"
+            },
+            {
+              "id": "2969596d-5429-4313-9762-b6dd5f312744",
+              "name": "Spintax Text Variant",
+              "value": "SMS 1 spintax v1",
+              "type": "string"
+            },
+            {
+              "id": "9ab1a6f8-b43f-44c0-b2cb-1ab13e966727",
+              "name": "Tags Applied",
+              "value": "sms 1 sent",
+              "type": "string"
+            },
+            {
+              "id": "0ca9c1b7-afd7-4738-8066-cfdb5c7ffae9",
+              "name": "Spintax Cadence Content",
+              "value": "={{ $('SMS 1 Spintax').item.json['SMS 1 Spintax'] }}",
+              "type": "string"
+            },
+            {
+              "id": "097aab45-7866-4892-be4d-7a8054c57a06",
+              "name": "Text Sent Cost",
+              "value": "$0.0083",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1480,
+        440
+      ],
+      "id": "17c2a501-a042-4189-9111-95805552db46",
+      "name": "SMS Cadence 1 Tracking"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7e420e88-3df4-4b30-b655-7bc18143a1c1",
+              "name": "Response Channel",
+              "value": "SMS",
+              "type": "string"
+            },
+            {
+              "id": "9f8d6145-4edc-4e28-b998-fb4a61ee8bf8",
+              "name": "Text Cadence #",
+              "value": "SMS 2 spintax",
+              "type": "string"
+            },
+            {
+              "id": "2969596d-5429-4313-9762-b6dd5f312744",
+              "name": "Spintax Text Variant",
+              "value": "SMS 2 spintax v1",
+              "type": "string"
+            },
+            {
+              "id": "9ab1a6f8-b43f-44c0-b2cb-1ab13e966727",
+              "name": "Tags Applied",
+              "value": "sms 2 sent",
+              "type": "string"
+            },
+            {
+              "id": "0ca9c1b7-afd7-4738-8066-cfdb5c7ffae9",
+              "name": "Spintax Cadence Content",
+              "value": "={{ $('SMS 2 Spintax').item.json['SMS 2 Spintax'] }}",
+              "type": "string"
+            },
+            {
+              "id": "8deffca2-2af2-4186-a5ec-6b3e4b060ebb",
+              "name": "Text Sent Cost",
+              "value": "$0.0083",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1480,
+        660
+      ],
+      "id": "ee17a4be-3718-4f18-ba88-fad5f39e757d",
+      "name": "SMS Cadence 2 Tracking"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7e420e88-3df4-4b30-b655-7bc18143a1c1",
+              "name": "Response Channel",
+              "value": "SMS",
+              "type": "string"
+            },
+            {
+              "id": "9f8d6145-4edc-4e28-b998-fb4a61ee8bf8",
+              "name": "Text Cadence #",
+              "value": "SMS 3 spintax",
+              "type": "string"
+            },
+            {
+              "id": "2969596d-5429-4313-9762-b6dd5f312744",
+              "name": "Spintax Text Variant",
+              "value": "SMS 3 spintax v1",
+              "type": "string"
+            },
+            {
+              "id": "9ab1a6f8-b43f-44c0-b2cb-1ab13e966727",
+              "name": "Tags Applied",
+              "value": "sms 3 sent",
+              "type": "string"
+            },
+            {
+              "id": "0ca9c1b7-afd7-4738-8066-cfdb5c7ffae9",
+              "name": "Spintax Cadence Content",
+              "value": "={{ $('SMS 3 Spintax').item.json['SMS 3 Spintax'] }}",
+              "type": "string"
+            },
+            {
+              "id": "62457233-8c88-4e8e-875c-71f9d6787cdb",
+              "name": "Text Sent Cost",
+              "value": "$0.0083",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1480,
+        880
+      ],
+      "id": "a2c0ab38-0b6b-4b95-9c88-01b22b7f765b",
+      "name": "SMS Cadence 3 Tracking"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{YOUR GOOGLE SHEET ID}}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "AI TEXT SENT",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T09BY4jiBZ80vEi9mMF4pXTXR3TfSCxEP2YLfY_pbRM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{$json.contact.dateUpdated.replace('T', ' ').split('.')[0]}}",
+            "Contact ID": "={{ $('Search Contacts GHL2').item.json.contacts[0].id }}",
+            "Lead Name": "={{ $('Search Contacts GHL2').item.json.contacts[0].firstNameLowerCase + \" \" + $('Search Contacts GHL2').item.json.contacts[0].lastNameLowerCase}}",
+            "Lead Phone": "={{ $('Set Account Fields').item.json.to_number }}",
+            "Business Name": "={{ $('Search Contacts GHL2').item.json.contacts[0].companyName }}",
+            "Tags Applied": "={{ $('SMS Cadence 1 Tracking').item.json['Tags Applied'] }}",
+            "Response Channel": "={{ $('SMS Cadence 1 Tracking').item.json['Response Channel'] }}",
+            "Spintax Text Variant": "={{ $('SMS Cadence 1 Tracking').item.json['Spintax Text Variant'] }}",
+            "Spintax Text Cadence Content": "={{ $('SMS Cadence 1 Tracking').item.json['Spintax Cadence Content'] }}",
+            "Text Cadence # ": "={{ $('SMS Cadence 1 Tracking').item.json['Text Cadence #'] }}",
+            "Lead Email": "={{ $('Search Contacts GHL2').item.json.contacts[0].email }}",
+            "Text Sent Cost": "={{ $('SMS Cadence 1 Tracking').item.json['Text Sent Cost'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact ID",
+              "displayName": "Contact ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead Name",
+              "displayName": "Lead Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead Phone",
+              "displayName": "Lead Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Lead Email",
+              "displayName": "Lead Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Business Name",
+              "displayName": "Business Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Response Channel",
+              "displayName": "Response Channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Text Cadence # ",
+              "displayName": "Text Cadence # ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Spintax Text Cadence Content",
+              "displayName": "Spintax Text Cadence Content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Spintax Text Variant",
+              "displayName": "Spintax Text Variant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tags Applied",
+              "displayName": "Tags Applied",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Text Sent Cost",
+              "displayName": "Text Sent Cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -600,
+        420
+      ],
+      "id": "b3bdca78-1318-462d-8bbb-bff0f908c3db",
+      "name": "Update AI (Text Sent) Channel Data Tracking",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "A6IQYss6hkOiCdiq",
+          "name": "InfinitX Sheet Credential"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{YOUR GOOGLE SHEET ID}}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "AI TEXT SENT",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T09BY4jiBZ80vEi9mMF4pXTXR3TfSCxEP2YLfY_pbRM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{$json.contact.dateUpdated.replace('T', ' ').split('.')[0]}}",
+            "Contact ID": "={{ $('Search Contacts GHL2').item.json.contacts[0].id }}",
+            "Lead Name": "={{ $('Search Contacts GHL2').item.json.contacts[0].firstNameLowerCase + \" \" + $('Search Contacts GHL2').item.json.contacts[0].lastNameLowerCase}}",
+            "Lead Phone": "={{ $('Set Account Fields').item.json.to_number }}",
+            "Business Name": "={{ $('Search Contacts GHL2').item.json.contacts[0].companyName }}",
+            "Tags Applied": "={{ $('SMS Cadence 2 Tracking').item.json['Tags Applied'] }}",
+            "Response Channel": "={{ $('SMS Cadence 2 Tracking').item.json['Response Channel'] }}",
+            "Lead Email": "={{ $('Search Contacts GHL2').item.json.contacts[0].email }}",
+            "Spintax Text Variant": "={{ $('SMS Cadence 2 Tracking').item.json['Spintax Text Variant'] }}",
+            "Spintax Text Cadence Content": "={{ $('SMS Cadence 2 Tracking').item.json['Spintax Cadence Content'] }}",
+            "Text Cadence # ": "={{ $('SMS Cadence 2 Tracking').item.json['Text Cadence #'] }}",
+            "Text Sent Cost": "={{ $('SMS Cadence 2 Tracking').item.json['Text Sent Cost'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact ID",
+              "displayName": "Contact ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead Name",
+              "displayName": "Lead Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead Phone",
+              "displayName": "Lead Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Lead Email",
+              "displayName": "Lead Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Business Name",
+              "displayName": "Business Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Response Channel",
+              "displayName": "Response Channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Text Cadence # ",
+              "displayName": "Text Cadence # ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Spintax Text Cadence Content",
+              "displayName": "Spintax Text Cadence Content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Spintax Text Variant",
+              "displayName": "Spintax Text Variant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tags Applied",
+              "displayName": "Tags Applied",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Text Sent Cost",
+              "displayName": "Text Sent Cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -600,
+        640
+      ],
+      "id": "688db094-1c74-458f-a19b-62b2c52ecb3e",
+      "name": "Update AI (Text Sent) Channel Data Tracking1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "A6IQYss6hkOiCdiq",
+          "name": "InfinitX Sheet Credential"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Webhook').item.json.body.contact_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData['Private Integration Token'] }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"id\": \"{{ $('Webhook').item.json.body.customData['Conversation ID'] }}\",\n      \"key\": \"Conversation ID\",\n      \"field_value\": \"{{ $('Send SMS 3').item.json.conversationId }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1720,
+        880
+      ],
+      "id": "a9b3c497-fa7b-49d2-8527-5408ea654ef4",
+      "name": "Update Conversation ID "
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/conversations/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "contactId",
+              "value": "={{ $('Set Fields For RVM 1').item.json.contact_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('Set Fields For RVM 1').item.json.authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2200,
+        -420
+      ],
+      "id": "6d0b9469-785b-4a2b-9cf5-45ff0d6752d1",
+      "name": "Search Conversations GHL"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9ce2dfdf-6662-4802-b804-54491263204f",
+              "name": "team_id",
+              "value": "={{ THIS IS THE TEAM ID FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "fdbec5fc-c464-4e4e-b7cd-229ebb4255a3",
+              "name": "secret",
+              "value": "={{ THIS IS THE SECRET FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "326b27a3-f105-4fea-a7e7-445108e93f33",
+              "name": "brand_id ",
+              "value": "={{ THIS IS THE BRAIND ID FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "b27bdaae-353f-492d-90b4-53f4bd7a229f",
+              "name": "recording_id ",
+              "value": "={{ THIS IS THE RECORDING ID FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "0d1f301c-4a85-4376-985c-8c9026418b2f",
+              "name": "phone_number",
+              "value": "={{ $('Webhook').item.json.body.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "cd16a73c-cafa-40c8-897d-2a9346f4c03e",
+              "name": "foreign_id",
+              "value": "rvm_1_[business name]",
+              "type": "string"
+            },
+            {
+              "id": "cdf3af2c-419e-4139-9ea2-6bb7686f0559",
+              "name": "pool_id ",
+              "value": "={{ THIS IS THE POOL ID FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "f27636d0-2747-4553-b2a4-c5ad00fb75a6",
+              "name": "contact_id",
+              "value": "={{ $('Webhook').item.json.body.contact_id }}",
+              "type": "string"
+            },
+            {
+              "id": "42417c88-ab9d-4892-8fb1-c0977d5fc7e6",
+              "name": "authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData['Private Integration Token'] }}",
+              "type": "string"
+            },
+            {
+              "id": "73a826ec-9f97-4a5a-95b9-0010f467a3bb",
+              "name": "rvm_tag",
+              "value": "rvm 1 sent",
+              "type": "string"
+            },
+            {
+              "id": "87a6cdf3-091e-42b2-9134-db0da01b3fc1",
+              "name": "lead_id",
+              "value": "={{ $('Webhook').item.json.body.contact_id }}",
+              "type": "string"
+            },
+            {
+              "id": "55e9388a-1e27-4476-88f9-ee793a097942",
+              "name": "ghl_contact_id_cold",
+              "value": "={{ $('Webhook').item.json.body.contact_id }}",
+              "type": "string"
+            },
+            {
+              "id": "c85a66fe-7a7c-451b-9322-4f8e6d257b6e",
+              "name": "lead_name",
+              "value": "={{ $('Webhook').item.json.body.full_name }}",
+              "type": "string"
+            },
+            {
+              "id": "7529c1e7-298a-401f-ba69-0d64e5be1b08",
+              "name": "cadence_id",
+              "value": "={{ $('Webhook').item.json.body.customData['Cadence ID'] }}",
+              "type": "string"
+            },
+            {
+              "id": "fa8f6549-47fd-4bfd-8b20-036cca46642e",
+              "name": "channel",
+              "value": "={{ $('Webhook').item.json.body.customData.Channel }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2440,
+        -420
+      ],
+      "id": "7f6ab7a2-7f22-4b4c-aa67-e6922a14c86e",
+      "name": "Set Fields For RVM 1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9ce2dfdf-6662-4802-b804-54491263204f",
+              "name": "team_id",
+              "value": "={{ THIS IS THE TEAM ID FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "fdbec5fc-c464-4e4e-b7cd-229ebb4255a3",
+              "name": "secret",
+              "value": "={{ THIS IS THE SECRET FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "326b27a3-f105-4fea-a7e7-445108e93f33",
+              "name": "brand_id",
+              "value": "={{ THIS IS THE BRAIND ID FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "b27bdaae-353f-492d-90b4-53f4bd7a229f",
+              "name": "recording_id",
+              "value": "={{ THIS IS THE RECORDING ID FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "0d1f301c-4a85-4376-985c-8c9026418b2f",
+              "name": "phone_number",
+              "value": "={{ $('Webhook').item.json.body.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "cd16a73c-cafa-40c8-897d-2a9346f4c03e",
+              "name": "foreign_id",
+              "value": "={{rvm_2_[business name]}}",
+              "type": "string"
+            },
+            {
+              "id": "cdf3af2c-419e-4139-9ea2-6bb7686f0559",
+              "name": "pool_id",
+              "value": "={{ THIS IS THE POOL ID FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "f27636d0-2747-4553-b2a4-c5ad00fb75a6",
+              "name": "contact_id",
+              "value": "={{ $('Webhook').item.json.body.contact_id }}",
+              "type": "string"
+            },
+            {
+              "id": "42417c88-ab9d-4892-8fb1-c0977d5fc7e6",
+              "name": "authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData['Private Integration Token'] }}",
+              "type": "string"
+            },
+            {
+              "id": "740db7eb-a231-40f7-9822-7b60696cb2fa",
+              "name": "rvm_tag",
+              "value": "rvm 2 sent",
+              "type": "string"
+            },
+            {
+              "id": "3ede7599-1491-4d5c-aced-bd156b937ce3",
+              "name": "lead_id",
+              "value": "={{ $('Webhook').item.json.body.contact_id }}",
+              "type": "string"
+            },
+            {
+              "id": "7214396f-4511-4997-9ea9-b9d566d8cf75",
+              "name": "ghl_contact_id_cold",
+              "value": "={{ $('Webhook').item.json.body.contact_id }}",
+              "type": "string"
+            },
+            {
+              "id": "636f2253-c637-4b84-84b9-b70d5a9433ff",
+              "name": "lead_name",
+              "value": "={{ $('Webhook').item.json.body.full_name }}",
+              "type": "string"
+            },
+            {
+              "id": "a18eb870-4821-4473-839c-15f072636756",
+              "name": "cadence_id",
+              "value": "={{ $('Webhook').item.json.body.customData['Cadence ID'] }}",
+              "type": "string"
+            },
+            {
+              "id": "1914733f-5a2a-43eb-becf-46c98372aa44",
+              "name": "channel",
+              "value": "={{ $('Webhook').item.json.body.customData.Channel }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2440,
+        -220
+      ],
+      "id": "69b6a1a2-ed45-4d6c-8d57-7c3eafa85288",
+      "name": "Set Fields For RVM 2"
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/conversations/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "contactId",
+              "value": "={{ $('Set Fields For RVM 2').item.json.contact_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('Set Fields For RVM 2').item.json.authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2200,
+        -220
+      ],
+      "id": "483c9d87-9cb9-4019-8930-e6466d392384",
+      "name": "Search Conversations GHL1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Set Fields For RVM 1').item.json.contact_id }}/tags",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('Set Fields For RVM 1').item.json.authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"tags\": [\n    \"{{ $('Set Fields For RVM 1').item.json.rvm_tag }}\"\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1740,
+        -420
+      ],
+      "id": "80067daf-c552-4680-96fa-6dafd0f73a7a",
+      "name": "Add RVM 1 Sent Tag"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dropcowboy.com/v1/rvm",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "team_id",
+              "value": "={{ $('Set Fields For RVM 1').item.json.team_id }}"
+            },
+            {
+              "name": "secret",
+              "value": "={{ $('Set Fields For RVM 1').item.json.secret }}"
+            },
+            {
+              "name": "brand_id",
+              "value": "={{ $('Set Fields For RVM 1').item.json[\"brand_id \"] }}"
+            },
+            {
+              "name": "recording_id",
+              "value": "={{ $('Set Fields For RVM 1').item.json[\"recording_id \"] }}"
+            },
+            {
+              "name": "phone_number",
+              "value": "={{ $('Set Fields For RVM 1').item.json.phone_number }}"
+            },
+            {
+              "name": "foreign_id",
+              "value": "={{ $('Set Fields For RVM 1').item.json.foreign_id }}"
+            },
+            {
+              "name": "pool_id",
+              "value": "={{ $('Set Fields For RVM 1').item.json[\"pool_id \"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1980,
+        -420
+      ],
+      "id": "cd688915-91a8-4973-9aa4-f8703b7069c8",
+      "name": "RVM 1 Sent"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dropcowboy.com/v1/rvm",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "team_id",
+              "value": "={{ $('Set Fields For RVM 2').item.json.team_id }}"
+            },
+            {
+              "name": "secret",
+              "value": "={{ $('Set Fields For RVM 2').item.json.secret }}"
+            },
+            {
+              "name": "brand_id",
+              "value": "={{ $('Set Fields For RVM 2').item.json.brand_id }}"
+            },
+            {
+              "name": "recording_id",
+              "value": "={{ $('Set Fields For RVM 2').item.json.recording_id }}"
+            },
+            {
+              "name": "phone_number",
+              "value": "={{ $('Set Fields For RVM 2').item.json.phone_number }}"
+            },
+            {
+              "name": "foreign_id",
+              "value": "={{ $('Set Fields For RVM 2').item.json.foreign_id }}"
+            },
+            {
+              "name": "pool_id",
+              "value": "={{ $('Set Fields For RVM 2').item.json.pool_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1980,
+        -220
+      ],
+      "id": "a6ce1ad7-e3a7-4dc6-865a-73db6272615f",
+      "name": "RVM 2 Sent"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Set Fields For RVM 2').item.json.contact_id }}/tags",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('Set Fields For RVM 2').item.json.authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"tags\": [\n    \"{{ $('Set Fields For RVM 2').item.json.rvm_tag }}\"\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1740,
+        -220
+      ],
+      "id": "22aebfa4-3719-4f96-a1c0-f006becb0a61",
+      "name": "Add RVM 2 Sent Tag"
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/conversations/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "contactId",
+              "value": "={{ $('Set Fields For RVM 3').item.json.contact_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('Set Fields For RVM 3').item.json.authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2200,
+        0
+      ],
+      "id": "f1fd2235-271a-48d0-9cf9-e76b1921b01d",
+      "name": "Search Conversations GHL2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9ce2dfdf-6662-4802-b804-54491263204f",
+              "name": "team_id",
+              "value": "={{ THIS IS THE TEAM ID FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "fdbec5fc-c464-4e4e-b7cd-229ebb4255a3",
+              "name": "secret",
+              "value": "={{ THIS IS THE SECRET FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "326b27a3-f105-4fea-a7e7-445108e93f33",
+              "name": "brand_id",
+              "value": "={{ THIS IS THE BRAIND ID FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "b27bdaae-353f-492d-90b4-53f4bd7a229f",
+              "name": "recording_id (change)",
+              "value": "={{ THIS IS THE RECORDING ID FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "0d1f301c-4a85-4376-985c-8c9026418b2f",
+              "name": "phone_number",
+              "value": "={{ $('Webhook').item.json.body.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "cd16a73c-cafa-40c8-897d-2a9346f4c03e",
+              "name": "foreign_id",
+              "value": "={{rvm_3_[business name]}}",
+              "type": "string"
+            },
+            {
+              "id": "cdf3af2c-419e-4139-9ea2-6bb7686f0559",
+              "name": "pool_id (change)",
+              "value": "={{ THIS IS THE POOL ID FROM DROP COWBOY }}",
+              "type": "string"
+            },
+            {
+              "id": "42417c88-ab9d-4892-8fb1-c0977d5fc7e6",
+              "name": "authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData['Private Integration Token'] }}",
+              "type": "string"
+            },
+            {
+              "id": "740db7eb-a231-40f7-9822-7b60696cb2fa",
+              "name": "rvm_tag",
+              "value": "rvm 3 sent",
+              "type": "string"
+            },
+            {
+              "id": "3ede7599-1491-4d5c-aced-bd156b937ce3",
+              "name": "lead_id",
+              "value": "={{ $('Webhook').item.json.body.contact_id }}",
+              "type": "string"
+            },
+            {
+              "id": "7214396f-4511-4997-9ea9-b9d566d8cf75",
+              "name": "ghl_contact_id_cold",
+              "value": "={{ $('Webhook').item.json.body.contact_id }}",
+              "type": "string"
+            },
+            {
+              "id": "636f2253-c637-4b84-84b9-b70d5a9433ff",
+              "name": "lead_name",
+              "value": "={{ $('Webhook').item.json.body.full_name }}",
+              "type": "string"
+            },
+            {
+              "id": "a18eb870-4821-4473-839c-15f072636756",
+              "name": "cadence_id",
+              "value": "={{ $('Webhook').item.json.body.customData['Cadence ID'] }}",
+              "type": "string"
+            },
+            {
+              "id": "1914733f-5a2a-43eb-becf-46c98372aa44",
+              "name": "channel",
+              "value": "={{ $('Webhook').item.json.body.customData.Channel }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2440,
+        0
+      ],
+      "id": "07788067-40ff-4c5a-a8dc-6f451c4cf147",
+      "name": "Set Fields For RVM 3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dropcowboy.com/v1/rvm",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "team_id",
+              "value": "={{ $('Set Fields For RVM 3').item.json.team_id }}"
+            },
+            {
+              "name": "secret",
+              "value": "={{ $('Set Fields For RVM 3').item.json.secret }}"
+            },
+            {
+              "name": "brand_id",
+              "value": "={{ $('Set Fields For RVM 3').item.json.brand_id }}"
+            },
+            {
+              "name": "recording_id",
+              "value": "={{ $('Set Fields For RVM 3').item.json.recording_id }}"
+            },
+            {
+              "name": "phone_number",
+              "value": "={{ $('Set Fields For RVM 3').item.json.phone_number }}"
+            },
+            {
+              "name": "foreign_id",
+              "value": "={{ $('Set Fields For RVM 3').item.json.foreign_id }}"
+            },
+            {
+              "name": "pool_id",
+              "value": "={{ $('Set Fields For RVM 3').item.json.pool_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1980,
+        0
+      ],
+      "id": "a1426b78-0e79-4746-a4ec-83957662bce9",
+      "name": "RVM 3 Sent"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Set Fields For RVM 3').item.json.contact_id }}/tags",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('Set Fields For RVM 3').item.json.authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"tags\": [\n    \"{{ $('Set Fields For RVM 3').item.json.rvm_tag }}\"\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1740,
+        0
+      ],
+      "id": "379b16bf-9dac-4697-976e-c19f56e37452",
+      "name": "Add RVM 3 Sent Tag"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "da08edf3-6cb5-4d57-b789-f46a48cd6f9e",
+              "name": "lead_id",
+              "value": "={{ $('Set Fields For RVM 3').item.json.lead_id }}",
+              "type": "string"
+            },
+            {
+              "id": "35a3abf6-7596-45e8-9430-02f1b876df8e",
+              "name": "ghl_contact_id_cold",
+              "value": "={{ $('Set Fields For RVM 3').item.json.ghl_contact_id_cold }}",
+              "type": "string"
+            },
+            {
+              "id": "c5f2ed0a-4969-4c9e-a129-9cc0ecefb626",
+              "name": "lead_name",
+              "value": "={{ $('Set Fields For RVM 3').item.json.lead_name }}",
+              "type": "string"
+            },
+            {
+              "id": "72e5f4b5-d32f-4058-aaa8-60ec34d10751",
+              "name": "cadence_id",
+              "value": "={{ $('Set Fields For RVM 3').item.json.cadence_id }}",
+              "type": "string"
+            },
+            {
+              "id": "04c6ce77-32fe-4957-a04e-1b728fe8c073",
+              "name": "channel",
+              "value": "={{ $('Set Fields For RVM 3').item.json.channel }}",
+              "type": "string"
+            },
+            {
+              "id": "58b171ef-8676-479e-a86a-3cdcea98db38",
+              "name": "message_type",
+              "value": "automated",
+              "type": "string"
+            },
+            {
+              "id": "3c610c1b-3063-4836-aca3-bc6776baa6ae",
+              "name": "message_content",
+              "value": "=recording id: recording id: {{ $('Set Fields For RVM 3').item.json.recording_id }}",
+              "type": "string"
+            },
+            {
+              "id": "d2906058-c2c2-46cb-b6a7-29c13ed08e0d",
+              "name": "conversation_id",
+              "value": "={{ $('Search Conversations GHL2').item.json.conversations[0].id }}",
+              "type": "string"
+            },
+            {
+              "id": "551d83d4-2439-43cb-8301-46a6e15d57ef",
+              "name": "interaction_cost",
+              "value": "0.007",
+              "type": "string"
+            },
+            {
+              "id": "fa1b9e13-f862-4a4a-9cac-048bb7dbc039",
+              "name": "metadata",
+              "value": "={\"recording_id\": \"{{ $('Set Fields For RVM 3').item.json.recording_id }}\", \"phone_number\": \"{{ $('Set Fields For RVM 3').item.json.phone_number}}\", \"foreign_id\": \"{{ $('Set Fields For RVM 3').item.json.foreign_id}}\"}",
+              "type": "string"
+            },
+            {
+              "id": "3684e281-6b28-4a03-a931-d4132789c244",
+              "name": "metadata_conversation",
+              "value": "={   \"conversation_history\": [     {       \"channel\": \"rvm\",       \"message_type\": \"automated\",       \"message_content\": \"recording id: {{ $('Set Fields For RVM 3').item.json.recording_id }}\",       \"timestamp\": \"{{$now}}\"     }   ] }",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1520,
+        0
+      ],
+      "id": "553e70f9-45bc-4898-9a93-dd123670a9b8",
+      "name": "Set Data For GoogleSheets2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "da08edf3-6cb5-4d57-b789-f46a48cd6f9e",
+              "name": "lead_id",
+              "value": "={{ $('Set Fields For RVM 2').item.json.lead_id }}",
+              "type": "string"
+            },
+            {
+              "id": "35a3abf6-7596-45e8-9430-02f1b876df8e",
+              "name": "ghl_contact_id_cold",
+              "value": "={{ $('Set Fields For RVM 2').item.json.ghl_contact_id_cold }}",
+              "type": "string"
+            },
+            {
+              "id": "c5f2ed0a-4969-4c9e-a129-9cc0ecefb626",
+              "name": "lead_name",
+              "value": "={{ $('Set Fields For RVM 2').item.json.lead_name }}",
+              "type": "string"
+            },
+            {
+              "id": "72e5f4b5-d32f-4058-aaa8-60ec34d10751",
+              "name": "cadence_id",
+              "value": "={{ $('Set Fields For RVM 2').item.json.cadence_id }}",
+              "type": "string"
+            },
+            {
+              "id": "04c6ce77-32fe-4957-a04e-1b728fe8c073",
+              "name": "channel",
+              "value": "={{ $('Set Fields For RVM 2').item.json.channel }}",
+              "type": "string"
+            },
+            {
+              "id": "58b171ef-8676-479e-a86a-3cdcea98db38",
+              "name": "message_type",
+              "value": "automated",
+              "type": "string"
+            },
+            {
+              "id": "3c610c1b-3063-4836-aca3-bc6776baa6ae",
+              "name": "message_content",
+              "value": "=recording id: recording id: {{ $('Set Fields For RVM 2').item.json.recording_id }}",
+              "type": "string"
+            },
+            {
+              "id": "d2906058-c2c2-46cb-b6a7-29c13ed08e0d",
+              "name": "conversation_id",
+              "value": "={{ $('Search Conversations GHL1').item.json.conversations[0].id }}",
+              "type": "string"
+            },
+            {
+              "id": "551d83d4-2439-43cb-8301-46a6e15d57ef",
+              "name": "interaction_cost",
+              "value": "0.007",
+              "type": "string"
+            },
+            {
+              "id": "fa1b9e13-f862-4a4a-9cac-048bb7dbc039",
+              "name": "metadata",
+              "value": "={\"recording_id\": \"{{ $('Set Fields For RVM 2').item.json.recording_id }}\", \"phone_number\": \"{{ $('Set Fields For RVM 2').item.json.phone_number}}\", \"foreign_id\": \"{{ $('Set Fields For RVM 2').item.json.foreign_id}}\"}",
+              "type": "string"
+            },
+            {
+              "id": "3684e281-6b28-4a03-a931-d4132789c244",
+              "name": "metadata_conversation",
+              "value": "={   \"conversation_history\": [     {       \"channel\": \"rvm\",       \"message_type\": \"automated\",       \"message_content\": \"recording id: {{ $('Set Fields For RVM 2').item.json.recording_id }}\",       \"timestamp\": \"{{$now}}\"     }   ] }",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1520,
+        -220
+      ],
+      "id": "2c6bfbd1-abcf-42f5-a6af-9fc87f1d5d41",
+      "name": "Set Data For GoogleSheets1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "da08edf3-6cb5-4d57-b789-f46a48cd6f9e",
+              "name": "lead_id",
+              "value": "={{ $('Set Fields For RVM 1').item.json.lead_id }}",
+              "type": "string"
+            },
+            {
+              "id": "35a3abf6-7596-45e8-9430-02f1b876df8e",
+              "name": "ghl_contact_id_cold",
+              "value": "={{ $('Set Fields For RVM 1').item.json.ghl_contact_id_cold }}",
+              "type": "string"
+            },
+            {
+              "id": "c5f2ed0a-4969-4c9e-a129-9cc0ecefb626",
+              "name": "lead_name",
+              "value": "={{ $('Set Fields For RVM 1').item.json.lead_name }}",
+              "type": "string"
+            },
+            {
+              "id": "72e5f4b5-d32f-4058-aaa8-60ec34d10751",
+              "name": "cadence_id",
+              "value": "={{ $('Set Fields For RVM 1').item.json.cadence_id || 'none' }}",
+              "type": "string"
+            },
+            {
+              "id": "04c6ce77-32fe-4957-a04e-1b728fe8c073",
+              "name": "channel",
+              "value": "={{ $('Set Fields For RVM 1').item.json.channel || 'none' }}",
+              "type": "string"
+            },
+            {
+              "id": "58b171ef-8676-479e-a86a-3cdcea98db38",
+              "name": "message_type",
+              "value": "automated",
+              "type": "string"
+            },
+            {
+              "id": "3c610c1b-3063-4836-aca3-bc6776baa6ae",
+              "name": "message_content",
+              "value": "=recording id: {{ $('Set Fields For RVM 1').item.json.recording_id }}",
+              "type": "string"
+            },
+            {
+              "id": "d2906058-c2c2-46cb-b6a7-29c13ed08e0d",
+              "name": "conversation_id",
+              "value": "={{ $('Search Conversations GHL').item.json.conversations[0].id }}",
+              "type": "string"
+            },
+            {
+              "id": "551d83d4-2439-43cb-8301-46a6e15d57ef",
+              "name": "interaction_cost",
+              "value": "0.007",
+              "type": "string"
+            },
+            {
+              "id": "fa1b9e13-f862-4a4a-9cac-048bb7dbc039",
+              "name": "metadata",
+              "value": "={\"recording_id\": \"{{ $('Set Fields For RVM 1').item.json.recording_id }}\", \"phone_number\": \"{{ $('Set Fields For RVM 1').item.json.phone_number}}\", \"foreign_id\": \"{{ $('Set Fields For RVM 1').item.json.foreign_id}}\"}",
+              "type": "string"
+            },
+            {
+              "id": "3684e281-6b28-4a03-a931-d4132789c244",
+              "name": "metadata_conversation",
+              "value": "={   \"conversation_history\": [     {       \"channel\": \"rvm\",       \"message_type\": \"automated\",       \"message_content\": \"recording id: {{ $('Set Fields For RVM 1').item.json.recording_id }}\",       \"timestamp\": \"{{$now}}\"     }   ] }",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1520,
+        -420
+      ],
+      "id": "ce88c894-1866-40c5-86a2-5b7566bbbd46",
+      "name": "Set Data For GoogleSheets"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -6620,
+        660
+      ],
+      "id": "e71512ed-1dad-4965-866b-04d21c0b1e6d",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2520,
+        -540
+      ],
+      "id": "592dd7bf-d136-49d2-9bbd-a9387e49d5a4",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2520,
+        -820
+      ],
+      "id": "47fd26bf-32ee-4fdd-8cb9-148d12fadf24",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2500,
+        1360
+      ],
+      "id": "d9c404e8-96a3-4ac1-9aa9-6e104b675458",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2500,
+        1080
+      ],
+      "id": "d4fa7fd2-6993-4bd4-a1da-e049be49b62b",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2500,
+        1220
+      ],
+      "id": "3cfa0a93-6cc1-49e4-ac05-f7cec742ca4a",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2520,
+        -680
+      ],
+      "id": "3b476589-c5ff-43bc-80c9-6e95233fe20d",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Account Fields').first().json.Authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"locationId\": \"{{ $('Set Account Fields').first().json.locationId }}\",\n  \"page\": 1,\n  \"pageLimit\": 20,\n  \"filters\": [\n    {\n      \"field\": \"phone\",\n      \"operator\": \"eq\",\n      \"value\": \"{{ $('Set Account Fields').first().json.from_number }}\"\n    }\n  ]\n}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "contact_details"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -6300,
+        760
+      ],
+      "id": "7dc4d63c-0db8-4b58-91c3-2adab2fab3b1",
+      "name": "Search Contacts GHL",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 5
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Get input data from nodes\nconst customValuesData = $('Get Custom Values GHL')?.item?.json?.custom_values || \"{}\";\nconst customFieldsData = $('Get Custom Fields GHL')?.item?.json?.custom_fields || \"{}\";\nconst contactData = $('Search Contacts GHL')?.item?.json?.contact_details || \"{}\";\nconst formattedNotes = $('Code Parse Notes')?.item?.json?.readableNotes || \"\";\nconst formattedConversations = $('Code Parse Notes')?.item?.json?.readableConversations || \"\";\nconst calendarData = $('Get Calendars GHL')?.item?.json?.calendars || \"{}\";\nconst accountFields = $('Set Account Fields')?.item?.json || {};\n\n// Get webhook data - this contains all field values\nconst webhookData = $('Webhook')?.item?.json?.body || {};\n\n// Safely parse JSON strings to objects\nfunction safeJsonParse(jsonStr, defaultValue = {}) {\n  try {\n    return typeof jsonStr === 'string' ? JSON.parse(jsonStr) : jsonStr;\n  } catch (e) {\n    console.log(`Error parsing JSON: ${e.message}`);\n    return defaultValue;\n  }\n}\n\n// Parse the JSON strings to objects\nconst customValuesObj = safeJsonParse(customValuesData);\nconst customFieldsObj = safeJsonParse(customFieldsData);\nconst contactObj = safeJsonParse(contactData);\nconst calendarObj = safeJsonParse(calendarData);\n\n// Extract the contact data from the first contact in the array\nconst contact = contactObj?.contacts && Array.isArray(contactObj.contacts) && contactObj.contacts.length > 0 \n  ? contactObj.contacts[0] \n  : {};\n\n// Extract custom fields array from both sources\nconst accountCustomFields = Array.isArray(customFieldsObj?.customFields) ? customFieldsObj.customFields : [];\nconst contactCustomFields = Array.isArray(contact?.customFields) ? contact.customFields : [];\nconst accountCustomValues = Array.isArray(customValuesObj?.customValues) ? customValuesObj.customValues : [];\nconst calendars = Array.isArray(calendarObj?.calendars) ? calendarObj.calendars : [];\n\n// Format contact name with proper capitalization\nconst firstName = contact?.firstNameLowerCase ? \n  contact.firstNameLowerCase.charAt(0).toUpperCase() + contact.firstNameLowerCase.slice(1) : \n  '';\nconst lastName = contact?.lastNameLowerCase ? \n  contact.lastNameLowerCase.charAt(0).toUpperCase() + contact.lastNameLowerCase.slice(1) : \n  '';\nconst fullName = `${firstName} ${lastName}`.trim() || 'none';\n\n// Get essential values from configuration\nconst voiceAgentName = \"Finn\";\nconst voiceAgentId = \"agent_9cd79204b446b2dd69e63de808\";\n\n// Create calendar mapping\nconst calendarMap = {};\ncalendars.forEach(calendar => {\n  if (!calendar) return;\n  \n  const calendarName = calendar.name || \"\";\n  const snakeCaseName = calendarName\n    .toLowerCase()\n    .replace(/[^\\w\\s]/g, '')\n    .replace(/\\s+/g, '_');\n  \n  calendarMap[calendarName] = calendar.id || '';\n  calendarMap[snakeCaseName] = calendar.id || '';\n});\n\n// Get connection details from Set Account Fields\nconst toNumber = String(accountFields?.to_number || webhookData?.phone || '');\nconst fromNumber = String(accountFields?.from_number || webhookData?.['Assigned Phone Number'] || '');\nconst privateIntegrationToken = String(accountFields?.Authorization || webhookData?.customData?.['Private Integration Token'] || '');\nconst locationId = String(accountFields?.locationId || (webhookData?.location?.id || ''));\nconst accountTimezone = String(accountFields?.['Account Timezone'] || 'America/New_York');\n\n// Create custom field name to ID mapping\nconst fieldNameToId = {};\naccountCustomFields.forEach(field => {\n  if (!field?.name) return;\n  \n  const snakeCaseName = field.name\n    .toLowerCase()\n    .replace(/[^\\w\\s]/g, '')\n    .replace(/\\s+/g, '_');\n\n  fieldNameToId[field.name] = field.id;\n  fieldNameToId[snakeCaseName] = field.id;\n});\n\n// Start building dynamic variables with basic info\nconst dynamicVariables = {\n  // Basic contact info\n  name: String(firstName || webhookData?.first_name || 'none'),\n  phone: String(contact?.phone || webhookData?.phone || 'none'),\n  email: String(contact?.email || webhookData?.email || 'none'),\n  address: String(contact?.address || webhookData?.full_address || 'none'),\n  full_name: String(fullName || (webhookData?.full_name || 'none')),\n  business_name: String(contact?.businessName || contact?.companyName || webhookData?.company_name || 'none'),\n  contact_id: String(contact?.id || webhookData?.contact_id || ''),\n  location_id: locationId,\n  private_integration_token: privateIntegrationToken,\n  account_company_name: \"INFINITX AI\",\n  from_number: fromNumber,\n  to_number: toNumber,\n  account_timezone: accountTimezone,\n  voice_ai_agent_name: voiceAgentName,\n  voice_ai_agent_id: voiceAgentId,\n  \n  // Calendar IDs \n  sales_calendar_id: \"cW52AjPgQBW9oj8xgKZz\",\n  sales2_calendar_id: \"cW52AjPgQBW9oj8xgKZz\",\n  onboarding_calendar_id: \"pk0fNghOxpLWocCxQgfW\",\n  customer_success_calendar_id: \"fj2cWOY9KUqowNzokkeR\",\n  \n  // Add conversation and notes history\n  conversation_history: formattedConversations,\n  notes_history: formattedNotes,\n  \n  // Tags\n  tags: Array.isArray(contact?.tags) ? contact.tags.join(', ') : (webhookData?.tags || '')\n};\n\n// Directly add values from webhook data - this is the most important part!\n// The values come directly from the webhook payload\nfor (const [key, value] of Object.entries(webhookData)) {\n  // Skip some special fields and objects\n  if (key === 'location' || key === 'user' || key === 'workflow' || \n      key === 'customData' || key === 'triggerData') {\n    continue;\n  }\n  \n  if (key && value !== undefined && value !== null) {\n    // Convert to snake_case\n    const snakeCaseName = key\n      .toLowerCase()\n      .replace(/[^\\w\\s]/g, '')\n      .replace(/\\s+/g, '_');\n      \n    if (snakeCaseName) {\n      // Directly add the value\n      dynamicVariables[snakeCaseName] = String(value || '');\n    }\n  }\n}\n\n// Add all custom field IDs with suffix _id\naccountCustomFields.forEach(field => {\n  if (!field?.id || !field?.name) return;\n  \n  const snakeCaseName = field.name\n    .toLowerCase()\n    .replace(/[^\\w\\s]/g, '')\n    .replace(/\\s+/g, '_');\n    \n  // Add the field ID with _id suffix\n  dynamicVariables[`${snakeCaseName}_id`] = String(field.id);\n  \n  // Only add the field value if not already set from webhook\n  // First look in webhookData by original field name\n  if (dynamicVariables[snakeCaseName] === undefined) {\n    if (webhookData[field.name] !== undefined) {\n      dynamicVariables[snakeCaseName] = String(webhookData[field.name] || '');\n    }\n  }\n});\n\n// Add calendar_map\ndynamicVariables.calendar_map = JSON.stringify({\n  \"Sales Calendar - AI Growth Partner\": \"cW52AjPgQBW9oj8xgKZz\",\n  \"sales_calendar_ai_growth_partner\": \"cW52AjPgQBW9oj8xgKZz\", \n  \"Customer Success Calendar\": \"fj2cWOY9KUqowNzokkeR\",\n  \"customer_success_calendar\": \"fj2cWOY9KUqowNzokkeR\",\n  \"Onboarding Calendar\": \"pk0fNghOxpLWocCxQgfW\",\n  \"onboarding_calendar\": \"pk0fNghOxpLWocCxQgfW\"\n});\n\n// Format the final output\nconst callInbound = {\n  call_inbound: {\n    dynamic_variables: dynamicVariables\n  }\n};\n\n// Convert the object to a properly formatted JSON string\nconst jsonString = JSON.stringify(callInbound, null, 2);\n\n// Return an object with the jsonString as an easily mappable property\nreturn { jsonBody: jsonString };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3740,
+        760
+      ],
+      "id": "74f933fd-622f-46e4-9856-d978c29c6b14",
+      "name": "Match Final Values",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsCode": "// Improved notes parser that's more dynamic and robust\nfunction processData() {\n  try {\n    // Get the raw outputs from the nodes\n    const conversationsRaw = $('Get Messages By Conversation ID GHL').item.json.conversations_output;\n    const notesRaw = $('Get Notes GHL').item.json.notes_output;\n    \n    // Parse the JSON strings\n    const conversationsData = JSON.parse(conversationsRaw);\n    const notesData = JSON.parse(notesRaw);\n    \n    // Format the data for humans and AI consumption\n    const readableConversations = formatConversations(conversationsData);\n    const readableNotes = formatNotesImproved(notesData);\n    \n    // Return the result\n    return [{ \n      json: {\n        readableConversations: readableConversations,\n        readableNotes: readableNotes\n      } \n    }];\n  } catch (error) {\n    return [{ json: { error: error.message } }];\n  }\n}\n\n// Format conversations (keeping existing implementation)\nfunction formatConversations(data) {\n  let result = \"== CONVERSATION HISTORY ==\\n\\n\";\n  \n  if (!data.messages || !data.messages.messages || data.messages.messages.length === 0) {\n    return result + \"No conversations found.\";\n  }\n  \n  const messages = data.messages.messages;\n  \n  for (let i = 0; i < messages.length; i++) {\n    const msg = messages[i];\n    \n    // Add date\n    result += \"[\" + new Date(msg.dateAdded).toLocaleString() + \"] \";\n    \n    // Add direction\n    if (msg.direction === \"inbound\") {\n      result += \"INCOMING \";\n    } else {\n      result += \"OUTGOING \";\n    }\n    \n    // Add type\n    if (msg.messageType === \"TYPE_ACTIVITY_OPPORTUNITY\") {\n      result += \"Opportunity Activity\";\n    } else if (msg.messageType === \"TYPE_SMS\") {\n      result += \"SMS\";\n    } else if (msg.messageType === \"TYPE_CALL\") {\n      result += \"Call\";\n    } else {\n      result += msg.messageType;\n    }\n    \n    // Add status if available\n    if (msg.status) {\n      result += \" (\" + msg.status + \")\";\n    }\n    \n    result += \":\\n\";\n    \n    // Add body if available\n    if (msg.body) {\n      result += msg.body + \"\\n\";\n    }\n    \n    // Add separator\n    if (i < messages.length - 1) {\n      result += \"\\n--------------------------------------------------\\n\\n\";\n    }\n  }\n  \n  return result;\n}\n\n// Improved notes formatter that's more flexible\nfunction formatNotesImproved(data) {\n  let result = \"== CONTACT NOTES ==\\n\\n\";\n  \n  if (!data.notes || data.notes.length === 0) {\n    return result + \"No notes found.\";\n  }\n  \n  const notes = data.notes;\n  \n  for (let i = 0; i < notes.length; i++) {\n    const note = notes[i];\n    \n    result += \"NOTE CREATED: \" + new Date(note.dateAdded).toLocaleString() + \"\\n\\n\";\n    \n    // Extract data dynamically from the note body\n    try {\n      // Get the note body and try to parse key-value pairs\n      const noteBody = note.body;\n      \n      // Check if the note body looks like it contains JSON-like key-value pairs\n      if (noteBody.includes(\"\\\"key\\\"\") && noteBody.includes(\"\\\"field_value\\\"\")) {\n        // Parse the pseudo-JSON structure\n        const entries = extractKeyValuePairs(noteBody);\n        \n        // Group entries by category\n        const callDetails = {};\n        let transcript = \"\";\n        let summary = \"\";\n        \n        // Process each entry\n        entries.forEach(entry => {\n          const key = entry.key;\n          const value = entry.value;\n          \n          // Handle special cases\n          if (key === \"AI Call Transcript\") {\n            transcript = value;\n          } else if (key === \"AI Call Summary\") {\n            summary = value;\n          } else {\n            // Store other fields in the details object\n            callDetails[key] = value;\n          }\n        });\n        \n        // Output formatted data (Details first)\n        result += \"=== CALL DETAILS ===\\n\";\n        \n        // Organize details into categories for better readability\n        const categories = {\n          \"Basic Info\": [\"AI Call Type\", \"AI Call Contact Name\", \"AI Call Duration\"],\n          \"Outcome\": [\"AI Call Outcome\", \"AI Call Outcome Reason\"],\n          \"Appointment\": [\"AI Call Appointment DateTime\"],\n          \"Contact Info\": [\"AI Call Contact Email\", \"AI Call Contact Phone\"],\n          \"Technical\": [\"AI Call Recording\", \"AI Call Timestamp\", \"AI Call Ended Reason\"]\n        };\n        \n        // Display details by category\n        for (const [category, fields] of Object.entries(categories)) {\n          let categoryHasValues = false;\n          let categoryContent = \"\";\n          \n          fields.forEach(field => {\n            if (callDetails[field] && callDetails[field] !== \"none\" && callDetails[field] !== \"not_detected\") {\n              categoryContent += `â€¢ ${field.replace('AI Call ', '')}: ${callDetails[field]}\\n`;\n              categoryHasValues = true;\n            }\n          });\n          \n          if (categoryHasValues) {\n            result += `\\n${category}:\\n${categoryContent}`;\n          }\n        }\n        \n        // Add any remaining fields that weren't in specific categories\n        let otherFields = \"\";\n        for (const [key, value] of Object.entries(callDetails)) {\n          if (value && value !== \"none\" && value !== \"not_detected\") {\n            // Check if this field was already included in a category\n            let alreadyIncluded = false;\n            for (const fields of Object.values(categories)) {\n              if (fields.includes(key)) {\n                alreadyIncluded = true;\n                break;\n              }\n            }\n            \n            if (!alreadyIncluded) {\n              otherFields += `â€¢ ${key.replace('AI Call ', '')}: ${value}\\n`;\n            }\n          }\n        }\n        \n        if (otherFields) {\n          result += \"\\nOther Details:\\n\" + otherFields;\n        }\n        \n        // Add summary if present\n        if (summary) {\n          result += \"\\n=== CALL SUMMARY ===\\n\" + summary + \"\\n\";\n        }\n        \n        // Add transcript if present (full transcript, but with improved formatting)\n        if (transcript) {\n          result += \"\\n=== FULL TRANSCRIPT ===\\n\\n\";\n          \n          // Improve transcript readability by formatting agent/user exchanges\n          const formattedTranscript = formatTranscript(transcript);\n          result += formattedTranscript + \"\\n\";\n        }\n      } else {\n        // If not in the expected format, just include the raw note body\n        result += \"NOTE CONTENT:\\n\" + noteBody + \"\\n\";\n      }\n    } catch (error) {\n      // Fallback if parsing fails\n      result += \"NOTE CONTENT (raw):\\n\" + note.body + \"\\n\";\n    }\n    \n    // Add separator between notes\n    if (i < notes.length - 1) {\n      result += \"\\n\" + \"=\".repeat(50) + \"\\n\\n\";\n    }\n  }\n  \n  return result;\n}\n\n// Helper function to format transcript for better readability\nfunction formatTranscript(transcript) {\n  // Replace escaped newlines with actual newlines\n  let formatted = transcript.replace(/\\\\n/g, '\\n');\n  \n  // Split into lines\n  const lines = formatted.split('\\n');\n  let result = '';\n  \n  // Process each line\n  for (let i = 0; i < lines.length; i++) {\n    const line = lines[i].trim();\n    \n    if (line.startsWith('Agent:')) {\n      // Format agent lines\n      result += line + '\\n';\n    } else if (line.startsWith('User:')) {\n      // Add spacing before user responses and format\n      if (i > 0) result += '\\n';\n      result += line + '\\n';\n    } else {\n      // Add other lines as-is\n      result += line + '\\n';\n    }\n  }\n  \n  return result;\n}\n\n\n// Helper function to extract key-value pairs from the pseudo-JSON structure\nfunction extractKeyValuePairs(text) {\n  const entries = [];\n  const lines = text.split(\"\\n\");\n  \n  let currentKey = null;\n  let currentValue = null;\n  \n  for (let i = 0; i < lines.length; i++) {\n    const line = lines[i].trim();\n    \n    // Look for key lines\n    if (line.includes(\"\\\"key\\\"\") && line.includes(\":\")) {\n      // Extract the key name\n      const keyMatch = line.match(/\\\"key\\\":\\s*\\\"([^\\\"]+)\\\"/);\n      if (keyMatch && keyMatch[1]) {\n        currentKey = keyMatch[1];\n      }\n    }\n    \n    // Look for field_value lines\n    if (line.includes(\"\\\"field_value\\\"\") && line.includes(\":\")) {\n      // Extract the value\n      const valueMatch = line.match(/\\\"field_value\\\":\\s*\\\"(.*?)\\\"/);\n      if (valueMatch) {\n        // Handle escaped quotes within the value\n        currentValue = valueMatch[1].replace(/\\\\\"/g, '\"').replace(/\\\\\\\\n/g, '\\n');\n        \n        // If we have both key and value, add them to our entries\n        if (currentKey) {\n          entries.push({\n            key: currentKey,\n            value: currentValue\n          });\n          \n          // Reset for next pair\n          currentKey = null;\n          currentValue = null;\n        }\n      }\n    }\n  }\n  \n  return entries;\n}\n\n// Run the function and return the result\nreturn processData();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4980,
+        760
+      ],
+      "id": "60ad4a85-8cd2-4ad5-a43a-aa1618d1ed73",
+      "name": "Code Parse Notes",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Webhook').item.json.body.contact_id }}/notes",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Account Fields').item.json.Authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "notes_output"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -5240,
+        760
+      ],
+      "id": "54e48bde-539b-42b7-b2a1-b7b9aa93a7d2",
+      "name": "Get Notes GHL",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/conversations/{{ $('Search Conversations GHL3').item.json.conversations[0].id }}/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Account Fields').item.json.Authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "conversations_output"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -5500,
+        760
+      ],
+      "id": "bfe4ed3b-c742-4567-b936-f8ce1fb7ed2c",
+      "name": "Get Messages By Conversation ID GHL",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/calendars/",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "locationId",
+              "value": "={{ $('Set Account Fields').item.json.locationId }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Account Fields').item.json.Authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "calendars"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -4680,
+        760
+      ],
+      "id": "505aeaa5-58c9-4fef-b083-a86537e4e1c7",
+      "name": "Get Calendars GHL",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/locations/{{ $('Set Account Fields').item.json.locationId }}/customValues",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Account Fields').item.json.Authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "custom_values"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -3960,
+        760
+      ],
+      "id": "77578f35-c2dc-4561-9f3f-df65adf09f52",
+      "name": "Get Custom Values GHL",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Account Fields').first().json.Authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"locationId\": \"{{ $('Set Account Fields').first().json.locationId }}\",\n  \"page\": 1,\n  \"pageLimit\": 20,\n  \"filters\": [\n    {\n      \"field\": \"phone\",\n      \"operator\": \"eq\",\n      \"value\": \"{{ $('Set Account Fields').first().json.to_number }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -6000,
+        760
+      ],
+      "id": "3d8404ea-bbc6-4fb9-8b25-e0d273aa33b5",
+      "name": "Search Contacts GHL2",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/conversations/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "contactId",
+              "value": "={{$('Webhook').item.json.body.contact_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Account Fields').item.json.Authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -5740,
+        760
+      ],
+      "id": "c66776b5-8ba7-4789-bcc9-2f66c1684960",
+      "name": "Search Conversations GHL3",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsCode": "// This code extracts specific fields from the previous node output\n// for creating personalized messages\n\n// Get the output from the previous node (Match Final Values)\nconst inputData = $input.item.json.jsonBody || \"{}\";\n\ntry {\n  // Parse the JSON string from the previous node\n  const parsedData = typeof inputData === 'string' ? JSON.parse(inputData) : inputData;\n  \n  // Access the dynamic_variables object\n  const dynamicVars = parsedData?.call_inbound?.dynamic_variables || {};\n  \n  // Extract only the fields we need for personalization\n  const personalizedData = {\n    // Contact basics\n    first_name: dynamicVars.first_name || dynamicVars.name || \"\",\n    last_name: dynamicVars.last_name || \"\",\n    full_name: dynamicVars.full_name || \"\",\n    company_name: dynamicVars.company_name || dynamicVars.business_name || \"\",\n    country: dynamicVars.country || \"\",\n    date_created: dynamicVars.date_created || \"\",\n    full_address: dynamicVars.full_address || dynamicVars.address || \"\",\n    \n    // Professional details\n    title: dynamicVars.title || \"\",\n    about: dynamicVars.about || \"\",\n    phone_direct: dynamicVars.phone_direct || \"\",\n    phone_hq: dynamicVars.phone_hq || \"\",\n    \n    // Company info\n    industries: dynamicVars.industries || \"\",\n    employees: dynamicVars.employees || \"\",\n    revenue: dynamicVars.revenue || \"\",\n    business_description: dynamicVars.business_description || \"\",\n    employed_date: dynamicVars.employed_date || \"\",\n    founded_year: dynamicVars.founded_year || \"\",\n    sic_codes: dynamicVars.sic_codes || \"\",\n    naics_codes: dynamicVars.naics_codes || \"\",\n    product_services: dynamicVars.product_services || \"\",\n    executives: dynamicVars.executives || \"\",\n    similar_companies: dynamicVars.similar_companies || \"\"\n  };\n  \n  // Create both text-friendly and JSON outputs for flexibility\n  \n  // Text summary for easy reading (e.g., for AI prompts)\n  const textSummary = `\nContact: ${personalizedData.full_name} (${personalizedData.title})\nCompany: ${personalizedData.company_name}\nIndustry: ${personalizedData.industries}\nSize: ${personalizedData.employees} employees, Revenue: ${personalizedData.revenue}\nLocation: ${personalizedData.full_address}\nDirect Phone: ${personalizedData.phone_direct}\nHQ Phone: ${personalizedData.phone_hq}\n\nAbout Contact:\n${personalizedData.about}\n\nBusiness Description:\n${personalizedData.business_description}\n\nProducts/Services: ${personalizedData.product_services}\nFounded: ${personalizedData.founded_year}\nKey Executives: ${personalizedData.executives}\nSimilar Companies: ${personalizedData.similar_companies}\n`.trim();\n\n  // Return both formats for maximum flexibility\n  return {\n    json: {\n      personalization: personalizedData,  // JSON format for programmatic use\n      summary: textSummary                // Text format for direct use in messages\n    }\n  };\n  \n} catch (error) {\n  // Handle any errors that occur during processing\n  return {\n    json: {\n      error: true,\n      message: `Error processing data: ${error.message}`,\n      inputData: inputData\n    }\n  };\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3460,
+        760
+      ],
+      "id": "ca781f4e-d063-484a-807d-f2be396d2bfd",
+      "name": "Extract Contact Details",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/locations/{{ $('Set Account Fields').item.json.locationId }}/customFields",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Account Fields').item.json.Authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "custom_fields"
+            }
+          }
+        }
+      },
+      "id": "11bc3b7d-3489-40b1-b34e-9a220e672ff0",
+      "name": "Get Custom Fields GHL",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -4420,
+        760
+      ],
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/locations/{{ $('Set Account Fields').item.json.locationId }}/customFields",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Account Fields').item.json.Authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7e169b54-fe2e-442b-88f7-6d143a583d8f",
+      "name": "Get Custom Fields GHL Update Contact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -4180,
+        760
+      ],
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Search Contacts GHL2').item.json.contacts[0].id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Account Fields').item.json.Authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"key\": \"ai_outreach_cadence\",\n      \"field_value\": \"{{ $('SMS Cadence 3 Tracking').item.json['Text Cadence #'] }}\"\n    },\n    {\n      \"key\": \"ai_outreach_cadence_content\",\n      \"field_value\": \"{{ $('SMS Cadence 3 Tracking').item.json['Spintax Cadence Content'] }}\"\n    },\n    {\n      \"key\": \"ai_outreach_spintax_variant\",\n      \"field_value\": \"{{ $('SMS Cadence 3 Tracking').item.json['Spintax Text Variant'] }}\"\n    }\n   \n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1260,
+        880
+      ],
+      "id": "d88ec34f-d776-4f7b-a0d1-111e799ba562",
+      "name": "Update Contact AI Outreach Fields GHL2",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Search Contacts GHL2').item.json.contacts[0].id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Account Fields').item.json.Authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"key\": \"ai_outreach_cadence\",\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Text Cadence #'] }}\"\n    },\n    {\n      \"key\": \"ai_outreach_cadence_content\",\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Spintax Cadence Content'] }}\"\n    },\n    {\n      \"key\": \"ai_outreach_spintax_variant\",\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Spintax Text Variant'] }}\"\n    }\n   \n  ]\n}\n\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1260,
+        440
+      ],
+      "id": "132ffcf1-4de4-4aac-91d6-d0243a99fc2f",
+      "name": "Update Contact AI Outreach Fields GHL",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Search Contacts GHL2').item.json.contacts[0].id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Account Fields').item.json.Authorization }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"key\": \"ai_outreach_cadence\",\n      \"field_value\": \"{{ $('SMS Cadence 2 Tracking').item.json['Text Cadence #'] }}\"\n    },\n    {\n      \"key\": \"ai_outreach_cadence_content\",\n      \"field_value\": \"{{ $('SMS Cadence 2 Tracking').item.json['Spintax Cadence Content'] }}\"\n    },\n    {\n      \"key\": \"ai_outreach_spintax_variant\",\n      \"field_value\": \"{{ $('SMS Cadence 2 Tracking').item.json['Spintax Text Variant'] }}\"\n    }\n   \n  ]\n}\n\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1260,
+        660
+      ],
+      "id": "95fe809d-b1ba-401d-bb72-71ee79bec6ee",
+      "name": "Update Contact AI Outreach Fields GHL1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1060,
+        440
+      ],
+      "id": "011651de-a826-4466-aadd-23f6f30683d4",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1060,
+        660
+      ],
+      "id": "9c136ace-6a9d-4322-b4c2-d51b328242cf",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1060,
+        880
+      ],
+      "id": "b75328f1-d723-4472-8fad-58d6a7e184e9",
+      "name": "Loop Over Items2"
+    },
+    {
+      "parameters": {
+        "content": "## 👽 Make sure Spreadsheet ID Looks Right - Click Refresh !!!",
+        "height": 80,
+        "width": 710
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        1100
+      ],
+      "id": "a65e68e1-156e-4d28-ab9d-3a5d47be81f0",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -780,
+        460
+      ],
+      "id": "26338cbf-43ff-481f-b78c-41b5fc5dac36",
+      "name": "Wait 2 minutes",
+      "webhookId": "20e0ec57-be0a-4ea4-8ff1-aee402c1d283"
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -780,
+        680
+      ],
+      "id": "bc55a62c-705c-4077-9c8c-bca4707d7050",
+      "name": "Wait 2 minutes1",
+      "webhookId": "20e0ec57-be0a-4ea4-8ff1-aee402c1d283"
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -780,
+        900
+      ],
+      "id": "174af698-26da-40a5-b2e3-9a152a36fb41",
+      "name": "Wait 2 minutes2",
+      "webhookId": "20e0ec57-be0a-4ea4-8ff1-aee402c1d283"
+    },
+    {
+      "parameters": {
+        "batchSize": 2,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -6960,
+        780
+      ],
+      "id": "6b455ef2-17af-420b-a9f3-508c1257b841",
+      "name": "Batch not oversaturate GHL"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -6720,
+        800
+      ],
+      "id": "65f499f4-1065-4ae7-896b-de87fc48059d",
+      "name": "Wait 10 seconds",
+      "webhookId": "04a1f0de-986c-4d8c-bcbc-f5a22ccd4722"
+    },
+    {
+      "parameters": {
+        "content": "## 👽 Make sure Spreadsheet ID Looks Right - Click Refresh !!!",
+        "height": 80,
+        "width": 710
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        1220
+      ],
+      "id": "fe618d91-d688-4af2-9920-39a051786062",
+      "name": "Sticky Note9"
+    },
+    {
+      "parameters": {
+        "content": "## 👽 Make sure Spreadsheet ID Looks Right - Click Refresh !!!",
+        "height": 80,
+        "width": 710
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        1340
+      ],
+      "id": "15d57dd8-23b1-4231-9ee7-f29228c76f41",
+      "name": "Sticky Note10"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Set Fields For RVM 1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Fields For RVM 2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Fields For RVM 3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SMS 1 Spintax",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SMS 2 Spintax",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SMS 3 Spintax",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send SMS 1": {
+      "main": [
+        [
+          {
+            "node": "Add Tag SMS 1 Sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Tag SMS 1 Sent": {
+      "main": [
+        [
+          {
+            "node": "Update Conversation ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Tag SMS 2 Sent": {
+      "main": [
+        [
+          {
+            "node": "Update Conversation ID 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Batch not oversaturate GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Account Fields": {
+      "main": [
+        [
+          {
+            "node": "Search Contacts GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send SMS 3": {
+      "main": [
+        [
+          {
+            "node": "Add Tag SMS 3 Sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Tag SMS 3 Sent": {
+      "main": [
+        [
+          {
+            "node": "Update Conversation ID ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send SMS 2": {
+      "main": [
+        [
+          {
+            "node": "Add Tag SMS 2 Sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMS 2 Spintax": {
+      "main": [
+        [
+          {
+            "node": "Send SMS 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMS 1 Spintax": {
+      "main": [
+        [
+          {
+            "node": "Send SMS 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMS 3 Spintax": {
+      "main": [
+        [
+          {
+            "node": "Send SMS 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Conversation ID": {
+      "main": [
+        [
+          {
+            "node": "SMS Cadence 1 Tracking",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Conversation ID 2": {
+      "main": [
+        [
+          {
+            "node": "SMS Cadence 2 Tracking",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMS Cadence 2 Tracking": {
+      "main": [
+        [
+          {
+            "node": "Update Contact AI Outreach Fields GHL1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMS Cadence 1 Tracking": {
+      "main": [
+        [
+          {
+            "node": "Update Contact AI Outreach Fields GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMS Cadence 3 Tracking": {
+      "main": [
+        [
+          {
+            "node": "Update Contact AI Outreach Fields GHL2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Conversation ID ": {
+      "main": [
+        [
+          {
+            "node": "SMS Cadence 3 Tracking",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Conversations GHL": {
+      "main": [
+        [
+          {
+            "node": "RVM 1 Sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields For RVM 1": {
+      "main": [
+        [
+          {
+            "node": "Search Conversations GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields For RVM 2": {
+      "main": [
+        [
+          {
+            "node": "Search Conversations GHL1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Conversations GHL1": {
+      "main": [
+        [
+          {
+            "node": "RVM 2 Sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add RVM 1 Sent Tag": {
+      "main": [
+        [
+          {
+            "node": "Set Data For GoogleSheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RVM 1 Sent": {
+      "main": [
+        [
+          {
+            "node": "Add RVM 1 Sent Tag",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RVM 2 Sent": {
+      "main": [
+        [
+          {
+            "node": "Add RVM 2 Sent Tag",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add RVM 2 Sent Tag": {
+      "main": [
+        [
+          {
+            "node": "Set Data For GoogleSheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Conversations GHL2": {
+      "main": [
+        [
+          {
+            "node": "RVM 3 Sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields For RVM 3": {
+      "main": [
+        [
+          {
+            "node": "Search Conversations GHL2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RVM 3 Sent": {
+      "main": [
+        [
+          {
+            "node": "Add RVM 3 Sent Tag",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add RVM 3 Sent Tag": {
+      "main": [
+        [
+          {
+            "node": "Set Data For GoogleSheets2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Contacts GHL": {
+      "main": [
+        [
+          {
+            "node": "Search Contacts GHL2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Match Final Values": {
+      "main": [
+        [
+          {
+            "node": "Extract Contact Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code Parse Notes": {
+      "main": [
+        [
+          {
+            "node": "Get Calendars GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Notes GHL": {
+      "main": [
+        [
+          {
+            "node": "Code Parse Notes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Messages By Conversation ID GHL": {
+      "main": [
+        [
+          {
+            "node": "Get Notes GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Calendars GHL": {
+      "main": [
+        [
+          {
+            "node": "Get Custom Fields GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Custom Values GHL": {
+      "main": [
+        [
+          {
+            "node": "Match Final Values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Contacts GHL2": {
+      "main": [
+        [
+          {
+            "node": "Search Conversations GHL3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Conversations GHL3": {
+      "main": [
+        [
+          {
+            "node": "Get Messages By Conversation ID GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Custom Fields GHL": {
+      "main": [
+        [
+          {
+            "node": "Get Custom Fields GHL Update Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Custom Fields GHL Update Contact": {
+      "main": [
+        [
+          {
+            "node": "Get Custom Values GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Contact Details": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Contact AI Outreach Fields GHL": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Contact AI Outreach Fields GHL1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Contact AI Outreach Fields GHL2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Update AI (Text Sent) Channel Data Tracking",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 2 minutes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Update AI (Text Sent) Channel Data Tracking1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 2 minutes1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [
+          {
+            "node": "Update AI (Text Sent) Channel Data Tracking2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 2 minutes2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 2 minutes": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 2 minutes1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 2 minutes2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Batch not oversaturate GHL": {
+      "main": [
+        [
+          {
+            "node": "Set Account Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 10 seconds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 10 seconds": {
+      "main": [
+        [
+          {
+            "node": "Batch not oversaturate GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "93b0aa58-9773-46f0-9eb7-6986cc2c6a9e",
+  "meta": {
+    "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
+  },
+  "id": "5d9x4UZ98ZfZ1TlD",
+  "tags": []
+}
