@@ -1885,7 +1885,7 @@
     },
     {
       "parameters": {
-        "content": "# 1️⃣ Requiered Video to Watch\n## AI Call Webhook Set UP\n\n[![YouTube Video](https://raw.githubusercontent.com/Trejon-888/n8n-workflows/refs/heads/main/InfinitX%20Island%20Logo.png#full-width)](https://www.loom.com/share/9aaa1ac0d68d4c39aa365b1aec11e29c?sid=75ed2953-da46-4d23-b31c-44cfed0100e8)",
+        "content": "# 1️⃣ Requiered Video to Watch\n## AI Call Webhook Set UP\n\n[![YouTube Video](https://raw.githubusercontent.com/Trejon-888/n8n-workflows/refs/heads/main/InfinitX%20Island%20Logo.png#full-width)](https://www.loom.com/share/74087eb7c83845f59d1d149caac01198?sid=4560ce04-e64c-4740-b973-23c283daf38c)",
         "height": 600,
         "width": 630,
         "color": 3
@@ -2608,7 +2608,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "9e8a7f2c-ed71-4e47-a2b8-6ab6a9c27cc4",
+  "versionId": "4b69de92-b749-4437-a091-c835fff33588",
   "meta": {
     "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
   },
