@@ -1,5 +1,5 @@
 {
-  "name": "INFINITX_AI_Text_Webhook_TEMPLATE",
+  "name": "INFINITX AI Text Webhook [TEMPLATE]",
   "nodes": [
     {
       "parameters": {
@@ -598,7 +598,7 @@
             {
               "id": "7e420e88-3df4-4b30-b655-7bc18143a1c1",
               "name": "Response Channel",
-              "value": "SMS",
+              "value": "={{ $('Set Placeholders').item.json['Response Channel'] }}",
               "type": "string"
             },
             {
@@ -1281,6 +1281,82 @@
       "name": "AI Agent",
       "retryOnFail": true,
       "maxTries": 5
+    },
+    {
+      "parameters": {
+        "content": "# 1️⃣ Requiered Video to Watch\n## AI Text Webhook Set UP\n\n[![YouTube Video](https://raw.githubusercontent.com/Trejon-888/n8n-workflows/refs/heads/main/InfinitX%20Island%20Logo.png#full-width)](https://www.loom.com/share/9aaa1ac0d68d4c39aa365b1aec11e29c?sid=75ed2953-da46-4d23-b31c-44cfed0100e8)",
+        "height": 600,
+        "width": 630,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -3240,
+        -1360
+      ],
+      "id": "9d930314-f52c-4129-9d6b-c0fe3af3d342",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "content": "# 2️⃣ AI Text Workflow GHL\n[![Loom Video](https://media.discordapp.net/attachments/858112848633790475/1399918900916785203/image.png?ex=688cb9d3&is=688b6853&hm=b2f98b924841d2a5b4068ac58cde77ad5ea58192b6a5445a88526fe6b4423e57&=&format=webp&quality=lossless&width=390&height=620#full-width)](https://www.loom.com/share/40181cc4feeb455bb179eb137f2b57e1?sid=bf8c629e-8007-4a8b-9dd5-3534483fb2bd)\n\n# 3️⃣ Understanding AI Text Workflow N8N\n[![Loom Video](https://cdn.discordapp.com/attachments/858112848633790475/1400154270279405758/image.png?ex=688b9ac7&is=688a4947&hm=9d18772af965acd0b4e64613a87e7f09b8390161c4a027ec7cfd100fb95a1e06&#full-width)](https://www.loom.com/share/7ce69062df014c78b92e65c6fa5f37e8?sid=0302a1dd-1c36-49cb-89fd-dad99c65e92d)\n\n\n\n",
+        "height": 1840,
+        "width": 620
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2580,
+        -1980
+      ],
+      "typeVersion": 1,
+      "id": "adcd4f67-a8c8-43f1-95af-380c8a0494f3",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "content": "# Follow Step By Step + Make sure you drop a 👍 at the end of each loom video.\n\n## Click On the Images to Open the Sticky Looms in Order :)",
+        "height": 280,
+        "width": 620
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -3920,
+        -1200
+      ],
+      "id": "8faf0eb0-173e-4571-b3f4-f0879d33c234",
+      "name": "Sticky Note12"
+    },
+    {
+      "parameters": {
+        "content": "#    1️⃣",
+        "height": 80,
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2800,
+        0
+      ],
+      "id": "ffeb3214-2f5e-444d-a3bc-c16932b87eda",
+      "name": "Sticky Note13"
+    },
+    {
+      "parameters": {
+        "content": "#    2️⃣",
+        "height": 80,
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        -100
+      ],
+      "id": "29db6c54-09d2-4778-b545-fa5d140ede73",
+      "name": "Sticky Note14"
     }
   ],
   "pinData": {},
@@ -1573,7 +1649,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "389df9da-0fd7-4be7-9c47-cda16da5b953",
+  "versionId": "b117d37f-5d0c-47ae-af91-95a295ca6aef",
   "meta": {
     "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
   },
