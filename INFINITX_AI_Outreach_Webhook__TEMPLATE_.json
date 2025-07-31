@@ -161,10 +161,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -3220,
-        700
+        -740,
+        1300
       ],
-      "id": "a4fcfd96-8664-43bb-8b79-d1cd4baa8094",
+      "id": "6fd85e0c-0eb6-4bed-b227-00a32d657e69",
       "name": "Switch"
     },
     {
@@ -196,10 +196,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -2180,
-        440
+        300,
+        1040
       ],
-      "id": "88e16643-d84a-4fa2-a8b2-392ab080464a",
+      "id": "e1400270-c5d9-4577-8df5-f56cd925b5dc",
       "name": "Send SMS 1"
     },
     {
@@ -231,10 +231,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1960,
-        440
+        520,
+        1040
       ],
-      "id": "a7448365-85ef-4ff5-9775-2a83c697cd94",
+      "id": "26350f95-50d0-43eb-9dd1-ef8c4a52d09e",
       "name": "Add Tag SMS 1 Sent"
     },
     {
@@ -266,10 +266,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1720,
-        440
+        760,
+        1040
       ],
-      "id": "4a660756-40d6-41ba-a9f2-0bf43d89162e",
+      "id": "1300ec17-1862-4eb0-8861-8c671531eb54",
       "name": "Update Conversation ID"
     },
     {
@@ -301,10 +301,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1960,
-        660
+        520,
+        1260
       ],
-      "id": "de8ff204-5d55-4020-ab9b-223d38c014e4",
+      "id": "a96c81b5-10ec-4aba-ab99-53123931550f",
       "name": "Add Tag SMS 2 Sent"
     },
     {
@@ -336,10 +336,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1720,
-        660
+        760,
+        1260
       ],
-      "id": "6776c2f0-e271-4b15-b1fe-b3e822bfd07e",
+      "id": "c49ee381-c4dd-480e-866d-dfa32eb5aca1",
       "name": "Update Conversation ID 2"
     },
     {
@@ -351,65 +351,12 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -7220,
-        780
+        -4720,
+        1380
       ],
-      "id": "13e18bcc-fb23-4266-ae9b-cacb5a3e9055",
+      "id": "3e3c6c3c-dd1f-4b42-bd9e-b7136a8613f5",
       "name": "Webhook",
       "webhookId": "a35c74da-7f93-4bf6-8200-dfdac012aaaf"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "10ff319f-7b29-46f9-a1cb-d21b768a19c3",
-              "name": "Authorization",
-              "value": "={{ $json.body.customData['Private Integration Token'] }}",
-              "type": "string"
-            },
-            {
-              "id": "ce3377ae-e394-4739-a8dd-d099b02ee1d2",
-              "name": "locationId",
-              "value": "={{ $json.body.location.id }}",
-              "type": "string"
-            },
-            {
-              "id": "65dd36bb-645c-4aac-8135-952b822b77cd",
-              "name": "Account Timezone",
-              "value": "={{ YOUR ACCOUNT TIME ZONE America/New_York for example }}",
-              "type": "string"
-            },
-            {
-              "id": "96b9ae16-deb6-4029-88e4-22f8c4e2661c",
-              "name": "to_number",
-              "value": "={{ $('Webhook').item.json.body.phone }}",
-              "type": "string"
-            },
-            {
-              "id": "1c8611cd-5f66-4f6e-b208-bfa2c1845280",
-              "name": "from_number",
-              "value": "={{ $('Webhook').item.json.body['Assigned Phone Number'] }}",
-              "type": "string"
-            },
-            {
-              "id": "fb044596-e5e4-4acc-bc2c-10e9b795533c",
-              "name": "current_datetime",
-              "value": "={{ $now.setZone($json.placeholders.custom_values.account_timezone) }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -6540,
-        760
-      ],
-      "id": "97782b3a-9af6-4300-af8c-49d08a68a2b8",
-      "name": "Set Account Fields"
     },
     {
       "parameters": {
@@ -440,10 +387,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -2200,
-        880
+        280,
+        1480
       ],
-      "id": "f0b8cfbb-859d-4272-8dbf-a172bcdadf84",
+      "id": "c5df253a-e57d-422a-9e4d-576ba0257cbe",
       "name": "Send SMS 3"
     },
     {
@@ -475,10 +422,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1940,
-        880
+        540,
+        1480
       ],
-      "id": "f3a4267f-38be-4592-9f5f-f1c773ffd538",
+      "id": "bc482dea-0d32-4ab6-aa69-c996033e3452",
       "name": "Add Tag SMS 3 Sent"
     },
     {
@@ -510,10 +457,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -2180,
-        660
+        300,
+        1260
       ],
-      "id": "3afc9c41-79c9-4ac1-b6e1-9ffd3d60c132",
+      "id": "b0147f6f-afa3-4a04-947e-da1afdd2a608",
       "name": "Send SMS 2"
     },
     {
@@ -533,10 +480,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -2440,
-        660
+        40,
+        1260
       ],
-      "id": "1cbf0724-5f23-4998-864c-ce7585558605",
+      "id": "ad05635a-2070-4c81-b543-60afe9b84319",
       "name": "SMS 2 Spintax"
     },
     {
@@ -556,10 +503,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -2440,
-        440
+        40,
+        1040
       ],
-      "id": "cb080ab8-0424-4547-8963-53715eb4bc9c",
+      "id": "01fabd01-2071-44d4-9b7d-f5db0d268ef4",
       "name": "SMS 1 Spintax"
     },
     {
@@ -579,10 +526,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -2440,
-        880
+        40,
+        1480
       ],
-      "id": "0d7ea453-61a2-49cf-a72d-c1ca7699cd41",
+      "id": "bd14e18d-c11f-448a-9de5-30958c497ccf",
       "name": "SMS 3 Spintax"
     },
     {
@@ -742,10 +689,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -600,
-        860
+        1880,
+        1460
       ],
-      "id": "0aa82782-27ca-4680-aff6-cc76846264fe",
+      "id": "9e9f9c4a-57cf-4919-969d-1e9981ddbc08",
       "name": "Update AI (Text Sent) Channel Data Tracking2",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -801,10 +748,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1480,
-        440
+        1000,
+        1040
       ],
-      "id": "17c2a501-a042-4189-9111-95805552db46",
+      "id": "e85b19b2-1064-4ce2-b817-6ba41be60fb5",
       "name": "SMS Cadence 1 Tracking"
     },
     {
@@ -854,10 +801,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1480,
-        660
+        1000,
+        1260
       ],
-      "id": "ee17a4be-3718-4f18-ba88-fad5f39e757d",
+      "id": "8d1c0e2f-7ad2-424d-91b4-d7a261528ff7",
       "name": "SMS Cadence 2 Tracking"
     },
     {
@@ -907,180 +854,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1480,
-        880
+        1000,
+        1480
       ],
-      "id": "a2c0ab38-0b6b-4b95-9c88-01b22b7f765b",
+      "id": "e785f8d9-d95a-4330-96ce-ff1259f5b8e3",
       "name": "SMS Cadence 3 Tracking"
-    },
-    {
-      "parameters": {
-        "operation": "append",
-        "documentId": {
-          "__rl": true,
-          "value": "={{YOUR GOOGLE SHEET ID}}",
-          "mode": "id"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "gid=0",
-          "mode": "list",
-          "cachedResultName": "AI TEXT SENT",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T09BY4jiBZ80vEi9mMF4pXTXR3TfSCxEP2YLfY_pbRM/edit#gid=0"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Timestamp": "={{$json.contact.dateUpdated.replace('T', ' ').split('.')[0]}}",
-            "Contact ID": "={{ $('Search Contacts GHL2').item.json.contacts[0].id }}",
-            "Lead Name": "={{ $('Search Contacts GHL2').item.json.contacts[0].firstNameLowerCase + \" \" + $('Search Contacts GHL2').item.json.contacts[0].lastNameLowerCase}}",
-            "Lead Phone": "={{ $('Set Account Fields').item.json.to_number }}",
-            "Business Name": "={{ $('Search Contacts GHL2').item.json.contacts[0].companyName }}",
-            "Tags Applied": "={{ $('SMS Cadence 1 Tracking').item.json['Tags Applied'] }}",
-            "Response Channel": "={{ $('SMS Cadence 1 Tracking').item.json['Response Channel'] }}",
-            "Spintax Text Variant": "={{ $('SMS Cadence 1 Tracking').item.json['Spintax Text Variant'] }}",
-            "Spintax Text Cadence Content": "={{ $('SMS Cadence 1 Tracking').item.json['Spintax Cadence Content'] }}",
-            "Text Cadence # ": "={{ $('SMS Cadence 1 Tracking').item.json['Text Cadence #'] }}",
-            "Lead Email": "={{ $('Search Contacts GHL2').item.json.contacts[0].email }}",
-            "Text Sent Cost": "={{ $('SMS Cadence 1 Tracking').item.json['Text Sent Cost'] }}"
-          },
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "Timestamp",
-              "displayName": "Timestamp",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Contact ID",
-              "displayName": "Contact ID",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Lead Name",
-              "displayName": "Lead Name",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Lead Phone",
-              "displayName": "Lead Phone",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Lead Email",
-              "displayName": "Lead Email",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Business Name",
-              "displayName": "Business Name",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Response Channel",
-              "displayName": "Response Channel",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Text Cadence # ",
-              "displayName": "Text Cadence # ",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Spintax Text Cadence Content",
-              "displayName": "Spintax Text Cadence Content",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Spintax Text Variant",
-              "displayName": "Spintax Text Variant",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Tags Applied",
-              "displayName": "Tags Applied",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Text Sent Cost",
-              "displayName": "Text Sent Cost",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        -600,
-        420
-      ],
-      "id": "b3bdca78-1318-462d-8bbb-bff0f908c3db",
-      "name": "Update AI (Text Sent) Channel Data Tracking",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "A6IQYss6hkOiCdiq",
-          "name": "InfinitX Sheet Credential"
-        }
-      }
     },
     {
       "parameters": {
@@ -1239,10 +1017,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -600,
-        640
+        1880,
+        1240
       ],
-      "id": "688db094-1c74-458f-a19b-62b2c52ecb3e",
+      "id": "a1066d4d-f625-48a3-a35d-ecba29d7758c",
       "name": "Update AI (Text Sent) Channel Data Tracking1",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -1280,10 +1058,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1720,
-        880
+        760,
+        1480
       ],
-      "id": "a9b3c497-fa7b-49d2-8527-5408ea654ef4",
+      "id": "dff70199-08b9-4677-829d-6b015d39f5a9",
       "name": "Update Conversation ID "
     },
     {
@@ -1320,10 +1098,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -2200,
-        -420
+        280,
+        180
       ],
-      "id": "6d0b9469-785b-4a2b-9cf5-45ff0d6752d1",
+      "id": "2a98c686-6e0a-4a88-a77c-5e3fdef5845d",
       "name": "Search Conversations GHL"
     },
     {
@@ -1427,10 +1205,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -2440,
-        -420
+        40,
+        180
       ],
-      "id": "7f6ab7a2-7f22-4b4c-aa67-e6922a14c86e",
+      "id": "731e4688-b34d-4f7e-af3f-331f12266fd1",
       "name": "Set Fields For RVM 1"
     },
     {
@@ -1534,10 +1312,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -2440,
-        -220
+        40,
+        380
       ],
-      "id": "69b6a1a2-ed45-4d6c-8d57-7c3eafa85288",
+      "id": "def6d195-5c4f-4e33-9925-2d8620034f3e",
       "name": "Set Fields For RVM 2"
     },
     {
@@ -1574,10 +1352,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -2200,
-        -220
+        280,
+        380
       ],
-      "id": "483c9d87-9cb9-4019-8930-e6466d392384",
+      "id": "4a1e9933-7a0f-464e-848a-4db322308c55",
       "name": "Search Conversations GHL1"
     },
     {
@@ -1609,10 +1387,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1740,
-        -420
+        740,
+        180
       ],
-      "id": "80067daf-c552-4680-96fa-6dafd0f73a7a",
+      "id": "8b2bb6ea-bc27-47a0-af5b-c03cce1c8c81",
       "name": "Add RVM 1 Sent Tag"
     },
     {
@@ -1657,10 +1435,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1980,
-        -420
+        500,
+        180
       ],
-      "id": "cd688915-91a8-4973-9aa4-f8703b7069c8",
+      "id": "929f6373-6f33-4bbd-ad3d-d73ea1d1e941",
       "name": "RVM 1 Sent"
     },
     {
@@ -1705,10 +1483,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1980,
-        -220
+        500,
+        380
       ],
-      "id": "a6ce1ad7-e3a7-4dc6-865a-73db6272615f",
+      "id": "642d91aa-1302-4212-aa6e-888d99333ebd",
       "name": "RVM 2 Sent"
     },
     {
@@ -1740,10 +1518,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1740,
-        -220
+        740,
+        380
       ],
-      "id": "22aebfa4-3719-4f96-a1c0-f006becb0a61",
+      "id": "0b714cb9-7f58-4a69-b3c6-615328f09928",
       "name": "Add RVM 2 Sent Tag"
     },
     {
@@ -1780,10 +1558,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -2200,
-        0
+        280,
+        600
       ],
-      "id": "f1fd2235-271a-48d0-9cf9-e76b1921b01d",
+      "id": "f952f500-082c-40ca-9f5a-26837dd93498",
       "name": "Search Conversations GHL2"
     },
     {
@@ -1881,10 +1659,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -2440,
-        0
+        40,
+        600
       ],
-      "id": "07788067-40ff-4c5a-a8dc-6f451c4cf147",
+      "id": "b88d9a16-3baa-4143-829a-1742b70733f1",
       "name": "Set Fields For RVM 3"
     },
     {
@@ -1929,10 +1707,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1980,
-        0
+        500,
+        600
       ],
-      "id": "a1426b78-0e79-4746-a4ec-83957662bce9",
+      "id": "bb0b5be7-5393-4e3f-80fa-07e2f7e64944",
       "name": "RVM 3 Sent"
     },
     {
@@ -1964,10 +1742,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1740,
-        0
+        740,
+        600
       ],
-      "id": "379b16bf-9dac-4697-976e-c19f56e37452",
+      "id": "498a7ec5-2028-427d-896e-19138a0425c7",
       "name": "Add RVM 3 Sent Tag"
     },
     {
@@ -2047,10 +1825,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1520,
-        0
+        960,
+        600
       ],
-      "id": "553e70f9-45bc-4898-9a93-dd123670a9b8",
+      "id": "0abc61c7-087f-4fb9-abb5-657d9b099199",
       "name": "Set Data For GoogleSheets2"
     },
     {
@@ -2130,10 +1908,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1520,
-        -220
+        960,
+        380
       ],
-      "id": "2c6bfbd1-abcf-42f5-a6af-9fc87f1d5d41",
+      "id": "6a8c277c-797b-4cf1-8eae-eb7ad4b8c5ce",
       "name": "Set Data For GoogleSheets1"
     },
     {
@@ -2173,7 +1951,7 @@
             {
               "id": "58b171ef-8676-479e-a86a-3cdcea98db38",
               "name": "message_type",
-              "value": "automated",
+              "value": "=automated",
               "type": "string"
             },
             {
@@ -2191,7 +1969,7 @@
             {
               "id": "551d83d4-2439-43cb-8301-46a6e15d57ef",
               "name": "interaction_cost",
-              "value": "0.007",
+              "value": "=0.007",
               "type": "string"
             },
             {
@@ -2213,10 +1991,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1520,
-        -420
+        960,
+        180
       ],
-      "id": "ce88c894-1866-40c5-86a2-5b7566bbbd46",
+      "id": "cbfcaf65-9cf3-46e2-a863-de6bffffd2a3",
       "name": "Set Data For GoogleSheets"
     },
     {
@@ -2228,25 +2006,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -6620,
-        660
+        -40,
+        60
       ],
-      "id": "e71512ed-1dad-4965-866b-04d21c0b1e6d",
-      "name": "Sticky Note"
-    },
-    {
-      "parameters": {
-        "content": "## Update Me With The Right Info !!!",
-        "height": 80,
-        "width": 250
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -2520,
-        -540
-      ],
-      "id": "592dd7bf-d136-49d2-9bbd-a9387e49d5a4",
+      "id": "33246923-7a59-4bdb-9351-7a6e0749c031",
       "name": "Sticky Note1"
     },
     {
@@ -2258,10 +2021,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -2520,
-        -820
+        -40,
+        -220
       ],
-      "id": "47fd26bf-32ee-4fdd-8cb9-148d12fadf24",
+      "id": "926dc85c-9d24-4412-ad2a-b5ce03e6cad6",
       "name": "Sticky Note2"
     },
     {
@@ -2273,10 +2036,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -2500,
-        1360
+        -20,
+        1960
       ],
-      "id": "d9c404e8-96a3-4ac1-9aa9-6e104b675458",
+      "id": "96aac57d-9f2d-4e34-90a4-ffd0d89ff4a0",
       "name": "Sticky Note3"
     },
     {
@@ -2288,10 +2051,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -2500,
-        1080
+        -20,
+        1680
       ],
-      "id": "d4fa7fd2-6993-4bd4-a1da-e049be49b62b",
+      "id": "4639bc22-d9be-49db-9197-4c0f6e2fc5ff",
       "name": "Sticky Note4"
     },
     {
@@ -2303,10 +2066,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -2500,
-        1220
+        -20,
+        1820
       ],
-      "id": "3cfa0a93-6cc1-49e4-ac05-f7cec742ca4a",
+      "id": "d284028b-cc50-4a92-a9d8-48759de6ab62",
       "name": "Sticky Note5"
     },
     {
@@ -2318,10 +2081,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -2520,
-        -680
+        -40,
+        -80
       ],
-      "id": "3b476589-c5ff-43bc-80c9-6e95233fe20d",
+      "id": "2969ab50-10e1-412e-a259-8f8dbf9a8d0a",
       "name": "Sticky Note6"
     },
     {
@@ -2360,10 +2123,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -6300,
-        760
+        -3820,
+        1360
       ],
-      "id": "7dc4d63c-0db8-4b58-91c3-2adab2fab3b1",
+      "id": "29c6d76f-d1b0-4233-b1ef-e05475eb5c54",
       "name": "Search Contacts GHL",
       "retryOnFail": true,
       "waitBetweenTries": 5000,
@@ -2377,10 +2140,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -3740,
-        760
+        -1260,
+        1360
       ],
-      "id": "74f933fd-622f-46e4-9856-d978c29c6b14",
+      "id": "782088fa-290c-45c1-ab66-7fbcfcfff8f6",
       "name": "Match Final Values",
       "retryOnFail": true,
       "maxTries": 5,
@@ -2393,10 +2156,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -4980,
-        760
+        -2500,
+        1360
       ],
-      "id": "60ad4a85-8cd2-4ad5-a43a-aa1618d1ed73",
+      "id": "5d742a63-e03c-4136-aa1d-de47998d6b59",
       "name": "Code Parse Notes",
       "retryOnFail": true,
       "maxTries": 5,
@@ -2434,10 +2197,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -5240,
-        760
+        -2760,
+        1360
       ],
-      "id": "54e48bde-539b-42b7-b2a1-b7b9aa93a7d2",
+      "id": "bbdda680-71db-49b7-8f42-31a2040ca2db",
       "name": "Get Notes GHL",
       "retryOnFail": true,
       "maxTries": 5,
@@ -2475,10 +2238,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -5500,
-        760
+        -3020,
+        1360
       ],
-      "id": "bfe4ed3b-c742-4567-b936-f8ce1fb7ed2c",
+      "id": "3a7dd904-bf05-44cc-a90d-4c9eee9d5956",
       "name": "Get Messages By Conversation ID GHL",
       "alwaysOutputData": true,
       "retryOnFail": true,
@@ -2527,10 +2290,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -4680,
-        760
+        -2200,
+        1360
       ],
-      "id": "505aeaa5-58c9-4fef-b083-a86537e4e1c7",
+      "id": "e4ec3371-f43d-4b64-8d37-71876314e1b3",
       "name": "Get Calendars GHL",
       "retryOnFail": true,
       "maxTries": 5,
@@ -2568,10 +2331,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -3960,
-        760
+        -1480,
+        1360
       ],
-      "id": "77578f35-c2dc-4561-9f3f-df65adf09f52",
+      "id": "cc4935ce-ef67-4c9a-8018-0adef531101d",
       "name": "Get Custom Values GHL",
       "retryOnFail": true,
       "maxTries": 5,
@@ -2606,10 +2369,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -6000,
-        760
+        -3520,
+        1360
       ],
-      "id": "3d8404ea-bbc6-4fb9-8b25-e0d273aa33b5",
+      "id": "f8cc0721-fd53-4f62-a3b8-8d37f4eadc65",
       "name": "Search Contacts GHL2",
       "retryOnFail": true,
       "maxTries": 5,
@@ -2649,10 +2412,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -5740,
-        760
+        -3260,
+        1360
       ],
-      "id": "c66776b5-8ba7-4789-bcc9-2f66c1684960",
+      "id": "0006a52b-2df7-4bfe-aeb6-9b593bd5f1ab",
       "name": "Search Conversations GHL3",
       "retryOnFail": true,
       "maxTries": 5,
@@ -2665,10 +2428,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -3460,
-        760
+        -980,
+        1360
       ],
-      "id": "ca781f4e-d063-484a-807d-f2be396d2bfd",
+      "id": "031b124f-de0c-4d8f-8ea0-587a49f35e6f",
       "name": "Extract Contact Details",
       "retryOnFail": true,
       "maxTries": 5,
@@ -2703,13 +2466,13 @@
           }
         }
       },
-      "id": "11bc3b7d-3489-40b1-b34e-9a220e672ff0",
+      "id": "c3d0c57f-560d-4b91-ba86-f25460bb4fac",
       "name": "Get Custom Fields GHL",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -4420,
-        760
+        -1940,
+        1360
       ],
       "alwaysOutputData": true,
       "retryOnFail": true,
@@ -2739,13 +2502,13 @@
         },
         "options": {}
       },
-      "id": "7e169b54-fe2e-442b-88f7-6d143a583d8f",
+      "id": "b2addaaa-5ae7-4d3f-a3f5-3e5bcffdc60a",
       "name": "Get Custom Fields GHL Update Contact",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -4180,
-        760
+        -1700,
+        1360
       ],
       "alwaysOutputData": true,
       "retryOnFail": true,
@@ -2776,16 +2539,16 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"key\": \"ai_outreach_cadence\",\n      \"field_value\": \"{{ $('SMS Cadence 3 Tracking').item.json['Text Cadence #'] }}\"\n    },\n    {\n      \"key\": \"ai_outreach_cadence_content\",\n      \"field_value\": \"{{ $('SMS Cadence 3 Tracking').item.json['Spintax Cadence Content'] }}\"\n    },\n    {\n      \"key\": \"ai_outreach_spintax_variant\",\n      \"field_value\": \"{{ $('SMS Cadence 3 Tracking').item.json['Spintax Text Variant'] }}\"\n    }\n   \n  ]\n}",
+        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Cadence').id }}\",\n      \"field_value\": \"{{ $('SMS Cadence 3 Tracking').item.json['Text Cadence #'] }}\"\n    },\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Cadence').id }}\",\n      \"field_value\": \"{{ $('SMS Cadence 3 Tracking').item.json['Spintax Cadence Content'] }}\"\n    },\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Cadence').id }}\",\n      \"field_value\": \"{{ $('SMS Cadence 3 Tracking').item.json['Spintax Text Variant'] }}\"\n    }\n   \n  ]\n}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1260,
-        880
+        1220,
+        1480
       ],
-      "id": "d88ec34f-d776-4f7b-a0d1-111e799ba562",
+      "id": "18f134ae-d92f-49d8-ac77-ae5b9803a942",
       "name": "Update Contact AI Outreach Fields GHL2",
       "retryOnFail": true,
       "maxTries": 5,
@@ -2814,16 +2577,16 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"key\": \"ai_outreach_cadence\",\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Text Cadence #'] }}\"\n    },\n    {\n      \"key\": \"ai_outreach_cadence_content\",\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Spintax Cadence Content'] }}\"\n    },\n    {\n      \"key\": \"ai_outreach_spintax_variant\",\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Spintax Text Variant'] }}\"\n    }\n   \n  ]\n}\n\n",
+        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Cadence').id }}\",\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Text Cadence #'] }}\"\n    },\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Cadence Content').id }},\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Spintax Cadence Content'] }}\"\n    },\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Spintax Variant').id }},\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Spintax Text Variant'] }}\"\n    }\n   \n  ]\n}\n\n",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1260,
-        440
+        1220,
+        1040
       ],
-      "id": "132ffcf1-4de4-4aac-91d6-d0243a99fc2f",
+      "id": "f88c3dcf-abc0-40ab-9edd-d66f19073833",
       "name": "Update Contact AI Outreach Fields GHL",
       "retryOnFail": true,
       "maxTries": 5,
@@ -2852,16 +2615,16 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"key\": \"ai_outreach_cadence\",\n      \"field_value\": \"{{ $('SMS Cadence 2 Tracking').item.json['Text Cadence #'] }}\"\n    },\n    {\n      \"key\": \"ai_outreach_cadence_content\",\n      \"field_value\": \"{{ $('SMS Cadence 2 Tracking').item.json['Spintax Cadence Content'] }}\"\n    },\n    {\n      \"key\": \"ai_outreach_spintax_variant\",\n      \"field_value\": \"{{ $('SMS Cadence 2 Tracking').item.json['Spintax Text Variant'] }}\"\n    }\n   \n  ]\n}\n\n",
+        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Cadence').id }}\",\n      \"field_value\": \"{{ $('SMS Cadence 2 Tracking').item.json['Text Cadence #'] }}\"\n    },\n    {\n     \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Cadence').id }}\",\n      \"field_value\": \"{{ $('SMS Cadence 2 Tracking').item.json['Spintax Cadence Content'] }}\"\n    },\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Cadence').id }}\",\n      \"field_value\": \"{{ $('SMS Cadence 2 Tracking').item.json['Spintax Text Variant'] }}\"\n    }\n   \n  ]\n}\n\n",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1260,
-        660
+        1220,
+        1260
       ],
-      "id": "95fe809d-b1ba-401d-bb72-71ee79bec6ee",
+      "id": "08b0d182-b525-4616-8924-52fec690887a",
       "name": "Update Contact AI Outreach Fields GHL1"
     },
     {
@@ -2871,10 +2634,10 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -1060,
-        440
+        1420,
+        1040
       ],
-      "id": "011651de-a826-4466-aadd-23f6f30683d4",
+      "id": "abca1cb4-9bb4-4cda-8824-13b5ecade3ed",
       "name": "Loop Over Items"
     },
     {
@@ -2884,10 +2647,10 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -1060,
-        660
+        1420,
+        1260
       ],
-      "id": "9c136ace-6a9d-4322-b4c2-d51b328242cf",
+      "id": "ca6d1ce8-2a82-42b0-b743-31e031bb896c",
       "name": "Loop Over Items1"
     },
     {
@@ -2897,26 +2660,11 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -1060,
-        880
+        1420,
+        1480
       ],
-      "id": "b75328f1-d723-4472-8fad-58d6a7e184e9",
+      "id": "8f114497-c362-457e-b1c0-cf5e0cbc60ce",
       "name": "Loop Over Items2"
-    },
-    {
-      "parameters": {
-        "content": "## 👽 Make sure Spreadsheet ID Looks Right - Click Refresh !!!",
-        "height": 80,
-        "width": 710
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -800,
-        1100
-      ],
-      "id": "a65e68e1-156e-4d28-ab9d-3a5d47be81f0",
-      "name": "Sticky Note8"
     },
     {
       "parameters": {
@@ -2926,10 +2674,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        -780,
-        460
+        1700,
+        1060
       ],
-      "id": "26338cbf-43ff-481f-b78c-41b5fc5dac36",
+      "id": "8606a782-2781-4791-b966-7747d70d2da8",
       "name": "Wait 2 minutes",
       "webhookId": "20e0ec57-be0a-4ea4-8ff1-aee402c1d283"
     },
@@ -2941,10 +2689,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        -780,
-        680
+        1700,
+        1280
       ],
-      "id": "bc55a62c-705c-4077-9c8c-bca4707d7050",
+      "id": "788e7291-4122-48c6-8fcd-b11d6bc7e826",
       "name": "Wait 2 minutes1",
       "webhookId": "20e0ec57-be0a-4ea4-8ff1-aee402c1d283"
     },
@@ -2956,10 +2704,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        -780,
-        900
+        1700,
+        1500
       ],
-      "id": "174af698-26da-40a5-b2e3-9a152a36fb41",
+      "id": "3243525f-411c-46d5-9209-5233683aeea9",
       "name": "Wait 2 minutes2",
       "webhookId": "20e0ec57-be0a-4ea4-8ff1-aee402c1d283"
     },
@@ -2971,10 +2719,10 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -6960,
-        780
+        -4480,
+        1380
       ],
-      "id": "6b455ef2-17af-420b-a9f3-508c1257b841",
+      "id": "07d5351a-8e04-4e40-97f5-53954875d240",
       "name": "Batch not oversaturate GHL"
     },
     {
@@ -2984,12 +2732,600 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        -6720,
-        800
+        -4240,
+        1400
       ],
-      "id": "65f499f4-1065-4ae7-896b-de87fc48059d",
+      "id": "52ab0e8f-9a34-4e5a-a0b5-880b3e1384ff",
       "name": "Wait 10 seconds",
       "webhookId": "04a1f0de-986c-4d8c-bcbc-f5a22ccd4722"
+    },
+    {
+      "parameters": {
+        "content": "# 1️⃣ Requiered Video to Watch\n## AI Outreach Set UP\n\n[![YouTube Video](https://raw.githubusercontent.com/Trejon-888/n8n-workflows/refs/heads/main/InfinitX%20Island%20Logo.png#full-width)](https://www.loom.com/share/936ca8f329bc423bbf5a2447cc635034?sid=156dd931-8d30-4f10-a06c-155e0e30dc21)",
+        "height": 600,
+        "width": 630,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -3140,
+        -220
+      ],
+      "id": "c1ef7ea4-a012-4df1-8627-4a58d1e4f7eb",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -4140,
+        1260
+      ],
+      "id": "e71747c5-d74e-4470-a700-6b734e2ce3e0",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "10ff319f-7b29-46f9-a1cb-d21b768a19c3",
+              "name": "Authorization",
+              "value": "={{ $json.body.customData['Private Integration Token'] }}",
+              "type": "string"
+            },
+            {
+              "id": "ce3377ae-e394-4739-a8dd-d099b02ee1d2",
+              "name": "locationId",
+              "value": "={{ $json.body.location.id }}",
+              "type": "string"
+            },
+            {
+              "id": "65dd36bb-645c-4aac-8135-952b822b77cd",
+              "name": "Account Timezone",
+              "value": "={{ YOUR ACCOUNT TIME ZONE America/New_York for example }}",
+              "type": "string"
+            },
+            {
+              "id": "96b9ae16-deb6-4029-88e4-22f8c4e2661c",
+              "name": "to_number",
+              "value": "={{ $('Webhook').item.json.body.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "1c8611cd-5f66-4f6e-b208-bfa2c1845280",
+              "name": "from_number",
+              "value": "={{ $('Webhook').item.json.body['Assigned Phone Number'] }}",
+              "type": "string"
+            },
+            {
+              "id": "fb044596-e5e4-4acc-bc2c-10e9b795533c",
+              "name": "current_datetime",
+              "value": "={{ $now.setZone($json.placeholders.custom_values.account_timezone) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4060,
+        1360
+      ],
+      "id": "9b891606-fd9c-4172-9d73-b3b19771544f",
+      "name": "Set Account Fields"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{YOUR GOOGLE SHEET ID RVM}}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 494391445,
+          "mode": "list",
+          "cachedResultName": "RVM Sent",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wjNAzM7rOu8DB0paFMYUxVBi-Q8Z10yDoaB2V44fPMM/edit#gid=494391445"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "lead_id": "={{ $('Set Data For GoogleSheets').item.json.lead_id }}",
+            "ghl_id ": "={{ $('Set Data For GoogleSheets').item.json.ghl_contact_id_cold }}",
+            "lead name": "={{ $('Set Data For GoogleSheets').item.json.lead_name }}",
+            "cadence id": "={{ $('Set Data For GoogleSheets').item.json.cadence_id }}",
+            "channel": "={{ $('Set Data For GoogleSheets').item.json.channel }}",
+            "message_type": "={{ $('Set Data For GoogleSheets').item.json.message_type }}",
+            "message_content": "={{ $('Set Data For GoogleSheets').item.json.message_content }}",
+            "conversation id": "={{ $('Set Data For GoogleSheets').item.json.message_content }}",
+            "interaction cost": "={{ $('Set Data For GoogleSheets').item.json.interaction_cost }}",
+            "metada ": "={{ $('Set Data For GoogleSheets').item.json.metadata }}",
+            "metadata_conversation": "={{ $('Set Data For GoogleSheets').item.json.metadata_conversation }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "lead_id",
+              "displayName": "lead_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ghl_id ",
+              "displayName": "ghl_id ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "lead name",
+              "displayName": "lead name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "cadence id",
+              "displayName": "cadence id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "channel",
+              "displayName": "channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "message_type",
+              "displayName": "message_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "message_content",
+              "displayName": "message_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "conversation id",
+              "displayName": "conversation id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "interaction cost",
+              "displayName": "interaction cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "metada ",
+              "displayName": "metada ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "metadata_conversation",
+              "displayName": "metadata_conversation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1200,
+        180
+      ],
+      "id": "99c25a02-7df0-43d9-b226-f711911e8688",
+      "name": "Update AI RVM Channel Data Tracking2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yYukeXRMn04jG7x6",
+          "name": "Enrique IX Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# 2️⃣ AI Outreach Workflow GHL\n[![YouTube Video](https://raw.githubusercontent.com/Trejon-888/n8n-workflows/refs/heads/main/AI%20Outreach%20Workflow.png#full-width)](https://www.loom.com/share/936ca8f329bc423bbf5a2447cc635034?sid=156dd931-8d30-4f10-a06c-155e0e30dc21)\n\n# 3️⃣ Understanding AI Outreach Workflow N8N\n[![Loom Video](https://raw.githubusercontent.com/Trejon-888/n8n-workflows/refs/heads/main/N8N%20Outreach%20Workflow.png#full-width)](https://www.loom.com/share/acceecb27a134256a59d9b25d6ed91eb?sid=b2d10fe6-8cd9-4875-ba6f-727be2cfc6bb)\n\n# 4️⃣ Understanding AI Outreach Workflow RVM (DropCowboy SetUp)\n[![Loom Video](https://raw.githubusercontent.com/Trejon-888/n8n-workflows/refs/heads/main/Drop%20Cowboy%20Workflow.png#full-width)](https://www.loom.com/share/639e981afcab4e5b9c8192b9c45910d8?sid=5ce0c6ed-9a26-450a-bc79-53273e19ff98)\n\n",
+        "height": 1360,
+        "width": 620
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2460,
+        -640
+      ],
+      "typeVersion": 1,
+      "id": "082f9349-13f9-4c43-9d55-ae8d4460c69b",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{YOUR GOOGLE SHEET ID RVM}}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 494391445,
+          "mode": "list",
+          "cachedResultName": "RVM Sent",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wjNAzM7rOu8DB0paFMYUxVBi-Q8Z10yDoaB2V44fPMM/edit#gid=494391445"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "lead_id": "={{ $('Set Data For GoogleSheets1').item.json.lead_id }}",
+            "ghl_id ": "={{ $('Set Data For GoogleSheets1').item.json.ghl_contact_id_cold }}",
+            "lead name": "={{ $('Set Data For GoogleSheets1').item.json.lead_name }}",
+            "cadence id": "={{ $('Set Data For GoogleSheets1').item.json.cadence_id }}",
+            "channel": "={{ $('Set Data For GoogleSheets1').item.json.channel }}",
+            "message_type": "={{ $('Set Data For GoogleSheets1').item.json.message_type }}",
+            "message_content": "={{ $('Set Data For GoogleSheets1').item.json.message_content }}",
+            "conversation id": "={{ $('Set Data For GoogleSheets1').item.json.message_content }}",
+            "interaction cost": "={{ $('Set Data For GoogleSheets1').item.json.interaction_cost }}",
+            "metada ": "={{ $('Set Data For GoogleSheets1').item.json.metadata }}",
+            "metadata_conversation": "={{ $('Set Data For GoogleSheets1').item.json.metadata_conversation }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "lead_id",
+              "displayName": "lead_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ghl_id ",
+              "displayName": "ghl_id ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "lead name",
+              "displayName": "lead name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "cadence id",
+              "displayName": "cadence id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "channel",
+              "displayName": "channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "message_type",
+              "displayName": "message_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "message_content",
+              "displayName": "message_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "conversation id",
+              "displayName": "conversation id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "interaction cost",
+              "displayName": "interaction cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "metada ",
+              "displayName": "metada ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "metadata_conversation",
+              "displayName": "metadata_conversation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1200,
+        380
+      ],
+      "id": "94c3ca47-6367-42cd-a500-25ac61a924e3",
+      "name": "Update AI RVM Channel Data Tracking1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yYukeXRMn04jG7x6",
+          "name": "Enrique IX Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{YOUR GOOGLE SHEET ID RVM}}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 494391445,
+          "mode": "list",
+          "cachedResultName": "RVM Sent",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wjNAzM7rOu8DB0paFMYUxVBi-Q8Z10yDoaB2V44fPMM/edit#gid=494391445"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "lead_id": "={{ $('Set Data For GoogleSheets2').item.json.lead_id }}",
+            "ghl_id ": "={{ $('Set Data For GoogleSheets2').item.json.ghl_contact_id_cold }}",
+            "lead name": "={{ $('Set Data For GoogleSheets2').item.json.lead_name }}",
+            "cadence id": "={{ $('Set Data For GoogleSheets2').item.json.cadence_id }}",
+            "channel": "={{ $('Set Data For GoogleSheets2').item.json.channel }}",
+            "message_type": "={{ $('Set Data For GoogleSheets2').item.json.message_type }}",
+            "message_content": "={{ $('Set Data For GoogleSheets2').item.json.message_content }}",
+            "conversation id": "={{ $('Set Data For GoogleSheets2').item.json.message_content }}",
+            "interaction cost": "={{ $('Set Data For GoogleSheets2').item.json.interaction_cost }}",
+            "metada ": "={{ $('Set Data For GoogleSheets2').item.json.metadata }}",
+            "metadata_conversation": "={{ $('Set Data For GoogleSheets2').item.json.metadata_conversation }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "lead_id",
+              "displayName": "lead_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ghl_id ",
+              "displayName": "ghl_id ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "lead name",
+              "displayName": "lead name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "cadence id",
+              "displayName": "cadence id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "channel",
+              "displayName": "channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "message_type",
+              "displayName": "message_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "message_content",
+              "displayName": "message_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "conversation id",
+              "displayName": "conversation id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "interaction cost",
+              "displayName": "interaction cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "metada ",
+              "displayName": "metada ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "metadata_conversation",
+              "displayName": "metadata_conversation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1200,
+        600
+      ],
+      "id": "e30928b5-b7cd-438b-a8ee-5e6dfef7a70f",
+      "name": "Update AI RVM Channel Data Tracking",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yYukeXRMn04jG7x6",
+          "name": "Enrique IX Account"
+        }
+      }
     },
     {
       "parameters": {
@@ -3000,10 +3336,25 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -800,
-        1220
+        1600,
+        1720
       ],
-      "id": "fe618d91-d688-4af2-9920-39a051786062",
+      "id": "d3c33bca-a496-414a-a282-cda960a500a1",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "content": "## 👽 Make sure Spreadsheet ID Looks Right - Click Refresh !!!",
+        "height": 80,
+        "width": 710
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        1840
+      ],
+      "id": "7777a5a6-5526-4fb0-bc64-dfeeba438790",
       "name": "Sticky Note9"
     },
     {
@@ -3015,11 +3366,270 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -800,
-        1340
+        1600,
+        1960
       ],
-      "id": "15d57dd8-23b1-4231-9ee7-f29228c76f41",
-      "name": "Sticky Note10"
+      "id": "5f5733c1-b8f1-4188-ba2c-e9bb7e165dc3",
+      "name": "Sticky Note11"
+    },
+    {
+      "parameters": {
+        "content": "# Follow Step By Step + Make sure you drop a 👍 at the end of each loom video.\n\n## Click On the Images to Open the Sticky Looms in Order :)",
+        "height": 280,
+        "width": 620
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -3840,
+        -80
+      ],
+      "id": "6757780e-1f4e-4b7d-b534-ad51b8dce863",
+      "name": "Sticky Note12"
+    },
+    {
+      "parameters": {
+        "content": "#    1️⃣",
+        "height": 80,
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1880,
+        920
+      ],
+      "id": "49014585-8003-4033-b499-d2497b247ee4",
+      "name": "Sticky Note13"
+    },
+    {
+      "parameters": {
+        "content": "#    2️⃣",
+        "height": 80,
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        60
+      ],
+      "id": "0bf6edbe-b5a5-466a-92a3-41e6455fe9a9",
+      "name": "Sticky Note14"
+    },
+    {
+      "parameters": {
+        "content": "#    3️⃣",
+        "height": 80,
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -4080,
+        1140
+      ],
+      "id": "34048218-9f8b-4882-b45f-ffe8acea2df9",
+      "name": "Sticky Note15"
+    },
+    {
+      "parameters": {
+        "content": "#    4️⃣",
+        "height": 80,
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        20,
+        920
+      ],
+      "id": "14e7aa20-9934-4751-8901-26a17eb64968",
+      "name": "Sticky Note16"
+    },
+    {
+      "parameters": {
+        "content": "#    5️⃣",
+        "height": 80,
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        20,
+        -340
+      ],
+      "id": "75fb01f1-53b4-4ecd-b193-5b730b0e1e94",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{YOUR GOOGLE SHEET ID}}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "AI TEXT SENT",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T09BY4jiBZ80vEi9mMF4pXTXR3TfSCxEP2YLfY_pbRM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{$json.contact.dateUpdated.replace('T', ' ').split('.')[0]}}",
+            "Contact ID": "={{ $('Search Contacts GHL2').item.json.contacts[0].id }}",
+            "Lead Name": "={{ $('Search Contacts GHL2').item.json.contacts[0].firstNameLowerCase + \" \" + $('Search Contacts GHL2').item.json.contacts[0].lastNameLowerCase}}",
+            "Lead Phone": "={{ $('Set Account Fields').item.json.to_number }}",
+            "Business Name": "={{ $('Search Contacts GHL2').item.json.contacts[0].companyName }}",
+            "Tags Applied": "={{ $('SMS Cadence 1 Tracking').item.json['Tags Applied'] }}",
+            "Response Channel": "={{ $('SMS Cadence 1 Tracking').item.json['Response Channel'] }}",
+            "Lead Email": "={{ $('Search Contacts GHL2').item.json.contacts[0].email }}",
+            "Spintax Text Variant": "={{ $('SMS Cadence 1 Tracking').item.json['Spintax Text Variant'] }}",
+            "Spintax Text Cadence Content": "={{ $('SMS Cadence 1 Tracking').item.json['Spintax Cadence Content'] }}",
+            "Text Cadence # ": "={{ $('SMS Cadence 1 Tracking').item.json['Text Cadence #'] }}",
+            "Text Sent Cost": "={{ $('SMS Cadence 1 Tracking').item.json['Text Sent Cost'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Contact ID",
+              "displayName": "Contact ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead Name",
+              "displayName": "Lead Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead Phone",
+              "displayName": "Lead Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Lead Email",
+              "displayName": "Lead Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Business Name",
+              "displayName": "Business Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Response Channel",
+              "displayName": "Response Channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Text Cadence # ",
+              "displayName": "Text Cadence # ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Spintax Text Cadence Content",
+              "displayName": "Spintax Text Cadence Content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Spintax Text Variant",
+              "displayName": "Spintax Text Variant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tags Applied",
+              "displayName": "Tags Applied",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Text Sent Cost",
+              "displayName": "Text Sent Cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1880,
+        1020
+      ],
+      "id": "5d7c8975-fc0d-4c86-b459-88fcfdbb2b11",
+      "name": "Update AI (Text Sent) Channel Data Tracking",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "A6IQYss6hkOiCdiq",
+          "name": "InfinitX Sheet Credential"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -3108,17 +3718,6 @@
         [
           {
             "node": "Batch not oversaturate GHL",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Set Account Fields": {
-      "main": [
-        [
-          {
-            "node": "Search Contacts GHL",
             "type": "main",
             "index": 0
           }
@@ -3669,16 +4268,60 @@
           }
         ]
       ]
+    },
+    "Set Account Fields": {
+      "main": [
+        [
+          {
+            "node": "Search Contacts GHL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Data For GoogleSheets": {
+      "main": [
+        [
+          {
+            "node": "Update AI RVM Channel Data Tracking2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Data For GoogleSheets1": {
+      "main": [
+        [
+          {
+            "node": "Update AI RVM Channel Data Tracking1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Data For GoogleSheets2": {
+      "main": [
+        [
+          {
+            "node": "Update AI RVM Channel Data Tracking",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "93b0aa58-9773-46f0-9eb7-6986cc2c6a9e",
+  "versionId": "bad8b411-be97-4719-b4aa-bb1b599bd967",
   "meta": {
     "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
   },
-  "id": "5d9x4UZ98ZfZ1TlD",
+  "id": "TANNuogpdLkT6hFJ",
   "tags": []
 }
