@@ -463,38 +463,6 @@
     },
     {
       "parameters": {
-        "toolDescription": "Updates or adds contact information in the CRM system. Use this tool whenever new or updated contact details are collected during the conversation.\n\nParameters:\n- first_name (optional): The contact's first name\n- last_name (optional): The contact's last name\n- email (optional): The contact's email address\n- phone (optional): The contact's phone number with country code\n- business_name (optional): The name of the contact's business\n- any additional custom fields you need to update",
-        "method": "PUT",
-        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Set Placeholders').item.json['Contact ID'] }}",
-        "sendHeaders": true,
-        "parametersHeaders": {
-          "values": [
-            {
-              "name": "Authorization",
-              "valueProvider": "fieldValue",
-              "value": "=Bearer {{ $('Set Placeholders').item.json['Private Integration Token'] }}"
-            },
-            {
-              "name": "Version",
-              "valueProvider": "fieldValue",
-              "value": "2021-07-28"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "model"
-      },
-      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
-      "typeVersion": 1.1,
-      "position": [
-        -2680,
-        520
-      ],
-      "id": "6d96de56-c317-4451-8a9a-6dbc9d32bcb2",
-      "name": "update_contact _information"
-    },
-    {
-      "parameters": {
         "toolDescription": "This is the add lead tag tool. Only use this tool to update the lead disposition as directed.",
         "method": "PUT",
         "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Set Placeholders').item.json['Contact ID'] }}",
@@ -581,8 +549,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1400,
-        220
+        -1080,
+        240
       ],
       "id": "e929a336-87a5-45c1-a691-f12518e6ffb2",
       "name": "Contact Reply Time",
@@ -644,8 +612,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1100,
-        220
+        -780,
+        240
       ],
       "id": "98069a04-6862-4980-912f-533d618d94a0",
       "name": "SMS Reply Tracking"
@@ -732,7 +700,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1680,
+        -1720,
         220
       ],
       "id": "06cc5630-3cfb-4368-8594-33ac9077f2a3",
@@ -940,8 +908,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -480,
-        240
+        -180,
+        260
       ],
       "id": "7fb8e0f4-3295-4d4b-acb2-bbd35e6881fd",
       "name": "Update AI (Text Reply) Channel Data Tracking",
@@ -963,8 +931,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -820,
-        220
+        -520,
+        240
       ],
       "id": "c5dcd6f0-fa72-45cf-afec-ccf559c1b564",
       "name": "Loop Over Items"
@@ -977,8 +945,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        -220,
-        260
+        80,
+        280
       ],
       "id": "ca59da00-53ce-4233-84e4-c48b8b88a756",
       "name": "Wait",
@@ -1186,8 +1154,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        0,
-        260
+        300,
+        280
       ],
       "id": "bb7c60d3-4eca-46ad-9ce0-40f5bf8cdbb6",
       "name": "Update AI (Text Reply) Channel Data Tracking1",
@@ -1211,8 +1179,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -700,
-        120
+        -400,
+        140
       ],
       "id": "9f259e4a-778c-41be-9e6b-86de844f4bbf",
       "name": "Sticky Note2"
@@ -1226,8 +1194,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -40,
-        160
+        260,
+        180
       ],
       "id": "68c6938c-0c6d-4795-9c22-f22e0e47ec67",
       "name": "Sticky Note"
@@ -1242,8 +1210,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -260,
-        0
+        40,
+        20
       ],
       "id": "0b99eaaf-3a2d-4f01-bba2-d9b6e6a3e01c",
       "name": "Sticky Note3"
@@ -1300,8 +1268,8 @@
     },
     {
       "parameters": {
-        "content": "# 2️⃣ AI Text Workflow GHL\n[![Loom Video](https://media.discordapp.net/attachments/858112848633790475/1399918900916785203/image.png?ex=688cb9d3&is=688b6853&hm=b2f98b924841d2a5b4068ac58cde77ad5ea58192b6a5445a88526fe6b4423e57&=&format=webp&quality=lossless&width=390&height=620#full-width)](https://www.loom.com/share/40181cc4feeb455bb179eb137f2b57e1?sid=bf8c629e-8007-4a8b-9dd5-3534483fb2bd)\n\n# 3️⃣ Understanding AI Text Workflow N8N\n[![Loom Video](https://cdn.discordapp.com/attachments/858112848633790475/1400154270279405758/image.png?ex=688b9ac7&is=688a4947&hm=9d18772af965acd0b4e64613a87e7f09b8390161c4a027ec7cfd100fb95a1e06&#full-width)](https://www.loom.com/share/7ce69062df014c78b92e65c6fa5f37e8?sid=0302a1dd-1c36-49cb-89fd-dad99c65e92d)\n\n\n\n",
-        "height": 1840,
+        "content": "# 2️⃣ AI Text Workflow GHL\n[![Loom Video](https://raw.githubusercontent.com/Trejon-888/n8n-workflows/refs/heads/main/AI%20Text%20Workflow.png#full-width)](https://www.loom.com/share/40181cc4feeb455bb179eb137f2b57e1?sid=bf8c629e-8007-4a8b-9dd5-3534483fb2bd)\n\n# 3️⃣ Understanding AI Text Workflow N8N\n[![Loom Video](https://raw.githubusercontent.com/Trejon-888/n8n-workflows/refs/heads/main/AI%20Text%20Agent.png#full-width)](https://www.loom.com/share/7ce69062df014c78b92e65c6fa5f37e8?sid=0302a1dd-1c36-49cb-89fd-dad99c65e92d)\n\n\n\n",
+        "height": 1980,
         "width": 620
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -1352,11 +1320,133 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -160,
-        -100
+        140,
+        -80
       ],
       "id": "29db6c54-09d2-4778-b545-fa5d140ede73",
       "name": "Sticky Note14"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c3fc2fd9-e57a-4391-887f-2a4fad5104b0",
+              "leftValue": "={{ $('Extract Lead Disposition').item.json.leadDisposition }}",
+              "rightValue": "dnd",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "32371c92-de45-4cb1-8448-71637d6b0ed5",
+              "leftValue": "={{ $('Extract Lead Disposition').item.json.leadDisposition }}",
+              "rightValue": "not interested",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1480,
+        220
+      ],
+      "id": "112e6009-2443-4b76-b5d2-b0f99614de76",
+      "name": "Text Status Off"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('INFINITX AI Placeholders Generator').item.json.placeholders.contact.contact_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Set Placeholders').item.json['Private Integration Token'] }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"id\": \"{{ $('INFINITX AI Placeholders Generator').item.json.placeholders.custom_field_ids.ai_text_status }}\",\n      \"field_value\": \"Off\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1280,
+        40
+      ],
+      "id": "45d72b3b-31a5-429f-8ff8-62451fd21654",
+      "name": "Update Contact AI Text Status Off"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Updates or adds contact information in the CRM system. Use this tool whenever new or updated contact details are collected during the conversation.\n\nParameters:\n- first_name (optional): The contact's first name\n- last_name (optional): The contact's last name\n- email (optional): The contact's email address\n- phone (optional): The contact's phone number with country code\n- business_name (optional): The name of the contact's business\n- any additional custom fields you need to update",
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Set Placeholders').item.json['Contact ID'] }}",
+        "sendHeaders": true,
+        "parametersHeaders": {
+          "values": [
+            {
+              "name": "Authorization",
+              "valueProvider": "fieldValue",
+              "value": "=Bearer {{ $('Set Placeholders').item.json['Private Integration Token'] }}"
+            },
+            {
+              "name": "Version",
+              "valueProvider": "fieldValue",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={update_body}",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "update_body",
+              "description": "Complete JSON body for updating contact. AI will provide the full JSON structure with the proper required fields including firstName, lastName, companyName, email, phone, and customFields array for revenue."
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        -2680,
+        520
+      ],
+      "id": "f4d4b543-0bf1-435f-8941-48c0efbb40f0",
+      "name": "update_contact _information"
     }
   ],
   "pinData": {},
@@ -1493,17 +1583,6 @@
         ]
       ]
     },
-    "update_contact _information": {
-      "ai_tool": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "add_lead_tag": {
       "ai_tool": [
         [
@@ -1585,7 +1664,7 @@
       "main": [
         [
           {
-            "node": "Contact Reply Time",
+            "node": "Text Status Off",
             "type": "main",
             "index": 0
           }
@@ -1643,13 +1722,53 @@
           }
         ]
       ]
+    },
+    "Text Status Off": {
+      "main": [
+        [
+          {
+            "node": "Update Contact AI Text Status Off",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Contact Reply Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Contact AI Text Status Off": {
+      "main": [
+        [
+          {
+            "node": "Contact Reply Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update_contact _information": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "b117d37f-5d0c-47ae-af91-95a295ca6aef",
+  "versionId": "ea70b01d-fef4-444a-90de-3c566a87b5d9",
   "meta": {
     "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
   },
