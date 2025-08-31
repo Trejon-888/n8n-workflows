@@ -8,11 +8,59 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
-        -3320,
-        -980
+        -20,
+        0
       ],
-      "id": "c1aed62f-5c1a-420d-9423-ebdf31f756f4",
+      "id": "b7c891c1-6e5e-487d-8680-b7e39b54e070",
       "name": "When Executed by AI Call Webhook"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "66f75201-beec-4cd0-9bf1-05798ccc8c72",
+              "leftValue": "={{ $('Code').item.json.output }}",
+              "rightValue": "no update",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2340,
+        0
+      ],
+      "id": "6193a28b-48c4-4d1f-b87f-18cf9286c08e",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2060,
+        -140
+      ],
+      "id": "2ccd724e-57d4-41dd-aebf-39d21e1fc5e4",
+      "name": "Sticky Note"
     },
     {
       "parameters": {
@@ -199,10 +247,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -3100,
-        -980
+        200,
+        0
       ],
-      "id": "54c6568c-7e65-479f-b379-c00a80c58fb0",
+      "id": "c1e80c7e-94a5-461e-a82b-b69e3134c993",
       "name": "Set Fields"
     },
     {
@@ -222,10 +270,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -2880,
-        -980
+        440,
+        0
       ],
-      "id": "929618b6-dcac-4591-bffc-03842dacac47",
+      "id": "35016899-3a16-419c-85bd-4a721c8b7b17",
       "name": "Get Retell Agent",
       "onError": "continueRegularOutput"
     },
@@ -258,10 +306,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -2580,
-        -980
+        720,
+        0
       ],
-      "id": "42717f09-3550-435a-8326-b122f4e57613",
+      "id": "da59ceef-694a-4049-b39b-368230fca62f",
       "name": "Search Contacts GHL"
     },
     {
@@ -293,10 +341,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -2340,
-        -980
+        960,
+        0
       ],
-      "id": "feaf2cbf-810f-42e3-82f1-5215619f2041",
+      "id": "8d2e25d7-e3b0-418c-ab8c-4a5490347575",
       "name": "Update Contact GHL"
     },
     {
@@ -331,13 +379,13 @@
         },
         "options": {}
       },
-      "id": "bf9bcae4-ca1a-42c3-be2b-8e71dd20e058",
+      "id": "d913dc77-67e0-4355-b721-1bdc5b6db933",
       "name": "Create Note GHL",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -2080,
-        -980
+        1220,
+        0
       ],
       "retryOnFail": true,
       "onError": "continueRegularOutput"
@@ -368,13 +416,13 @@
         "jsonBody": "={\n  \"tags\": [\n    \"{{ $('Set Fields').item.json.ai_call_outcome}} (call)\",\n    \"{{ \n  [\"dna\", \"voicemail\", \"hang_up\"].includes(\n    $('Set Fields').item.json.ai_call_outcome\n  ) \n  ? \"dna\" \n  : \"answered\" \n}}\"\n  ]\n}",
         "options": {}
       },
-      "id": "a8784fc0-3919-467d-87e1-7a069266ad24",
+      "id": "6ed3262f-7bf0-4de0-8834-14fa2a48441c",
       "name": "Add Tag GHL",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1820,
-        -980
+        1480,
+        0
       ],
       "retryOnFail": true,
       "onError": "continueRegularOutput"
@@ -386,10 +434,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1580,
-        -980
+        1700,
+        0
       ],
-      "id": "12305a42-0d03-426c-aaec-68355c57f7a2",
+      "id": "4e01bb23-a62c-493c-acf5-e37c64897413",
       "name": "Code"
     },
     {
@@ -565,10 +613,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1380,
-        -980
+        1920,
+        0
       ],
-      "id": "67cb3832-c831-4f7d-9702-ca22bc8f8d0d",
+      "id": "d7047f41-a017-4da5-baa5-7caf24286be4",
       "name": "Set Fields For Tracking"
     },
     {
@@ -840,10 +888,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1160,
-        -980
+        2140,
+        0
       ],
-      "id": "a9186699-4272-4687-a2fc-1cb24adffd99",
+      "id": "88a8d790-a843-4ca4-ae59-0e3347a3bf19",
       "name": "Google Sheets",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -881,59 +929,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -700,
-        -960
+        2600,
+        20
       ],
-      "id": "073e93d7-4fba-44f9-abf7-352242a8523a",
+      "id": "90f2f369-d916-4bdf-8267-6778dea077ab",
       "name": "Update Contact Info"
-    },
-    {
-      "parameters": {
-        "content": "## 👽 Make sure I Look Right - Click Refresh !!!",
-        "height": 80,
-        "width": 370
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -1260,
-        -1100
-      ],
-      "id": "f1dc8257-97bb-414d-881a-72a7d4dd5005",
-      "name": "Sticky Note1"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "66f75201-beec-4cd0-9bf1-05798ccc8c72",
-              "leftValue": "={{ $('Code').item.json.output }}",
-              "rightValue": "no update",
-              "operator": {
-                "type": "string",
-                "operation": "contains"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        -960,
-        -980
-      ],
-      "id": "9b4b3c28-9376-4fc4-8875-0c7458bfa60a",
-      "name": "If"
     }
   ],
   "pinData": {},
@@ -943,6 +943,18 @@
         [
           {
             "node": "Set Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Update Contact Info",
             "type": "main",
             "index": 0
           }
@@ -1041,19 +1053,7 @@
       "main": [
         [
           {
-            "node": "If",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If": {
-      "main": [
-        [],
-        [
-          {
-            "node": "Update Contact Info",
+            "node": "If4",
             "type": "main",
             "index": 0
           }
@@ -1065,10 +1065,11 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "d0030b31-354f-4a8f-b062-72ea46323dd1",
+  "versionId": "fd2037fa-df09-4a70-9eea-216f3d25426a",
   "meta": {
+    "templateCredsSetupCompleted": true,
     "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
   },
-  "id": "5d9x4UZ98ZfZ1TlD",
+  "id": "66H0p6QnZEev8VOQ",
   "tags": []
 }
