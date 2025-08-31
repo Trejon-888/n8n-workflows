@@ -470,7 +470,7 @@
             {
               "id": "d9de026d-8ccb-4111-a1d4-d25bca5dd081",
               "name": "SMS 2 Spintax",
-              "value": "={{ PASTE SPINTAX IN HERE - YOU GET THIS EMAILED TO YOU - FOLLOW SOP - MESSAGE MUST BE UNDER 150 WORDS }}",
+              "value": "={{ PASTE SPINTAX IN HERE - YOU GET THIS EMAILED TO YOU - FOLLOW SOP - MESSAGE MUST BE UNDER 150 CHARACTERS }}",
               "type": "string"
             }
           ]
@@ -493,7 +493,7 @@
             {
               "id": "d9de026d-8ccb-4111-a1d4-d25bca5dd081",
               "name": "SMS 1 Spintax",
-              "value": "={{ PASTE SPINTAX IN HERE - YOU GET THIS EMAILED TO YOU - FOLLOW SOP - MESSAGE MUST BE UNDER 150 WORDS }}",
+              "value": "={{ PASTE SPINTAX IN HERE - YOU GET THIS EMAILED TO YOU - FOLLOW SOP - MESSAGE MUST BE UNDER 150 CHARACTERS }}",
               "type": "string"
             }
           ]
@@ -516,7 +516,7 @@
             {
               "id": "d9de026d-8ccb-4111-a1d4-d25bca5dd081",
               "name": "SMS 3 Spintax",
-              "value": "={{ PASTE SPINTAX IN HERE - YOU GET THIS EMAILED TO YOU - FOLLOW SOP - MESSAGE MUST BE UNDER 150 WORDS }}",
+              "value": "={{ PASTE SPINTAX IN HERE - YOU GET THIS EMAILED TO YOU - FOLLOW SOP - MESSAGE MUST BE UNDER 150 CHARACTERS }}",
               "type": "string"
             }
           ]
@@ -1121,12 +1121,6 @@
               "type": "string"
             },
             {
-              "id": "326b27a3-f105-4fea-a7e7-445108e93f33",
-              "name": "brand_id ",
-              "value": "={{ THIS IS THE BRAIND ID FROM DROP COWBOY }}",
-              "type": "string"
-            },
-            {
               "id": "b27bdaae-353f-492d-90b4-53f4bd7a229f",
               "name": "recording_id ",
               "value": "={{ THIS IS THE RECORDING ID FROM DROP COWBOY }}",
@@ -1435,7 +1429,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        500,
+        520,
         180
       ],
       "id": "929f6373-6f33-4bbd-ad3d-d73ea1d1e941",
@@ -1483,7 +1477,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        500,
+        520,
         380
       ],
       "id": "642d91aa-1302-4212-aa6e-888d99333ebd",
@@ -1707,7 +1701,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        500,
+        520,
         600
       ],
       "id": "bb0b5be7-5393-4e3f-80fa-07e2f7e64944",
@@ -2825,169 +2819,6 @@
     },
     {
       "parameters": {
-        "operation": "append",
-        "documentId": {
-          "__rl": true,
-          "value": "={{YOUR GOOGLE SHEET ID RVM}}",
-          "mode": "id"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 494391445,
-          "mode": "list",
-          "cachedResultName": "RVM Sent",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wjNAzM7rOu8DB0paFMYUxVBi-Q8Z10yDoaB2V44fPMM/edit#gid=494391445"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "lead_id": "={{ $('Set Data For GoogleSheets').item.json.lead_id }}",
-            "ghl_id ": "={{ $('Set Data For GoogleSheets').item.json.ghl_contact_id_cold }}",
-            "lead name": "={{ $('Set Data For GoogleSheets').item.json.lead_name }}",
-            "cadence id": "={{ $('Set Data For GoogleSheets').item.json.cadence_id }}",
-            "channel": "={{ $('Set Data For GoogleSheets').item.json.channel }}",
-            "message_type": "={{ $('Set Data For GoogleSheets').item.json.message_type }}",
-            "message_content": "={{ $('Set Data For GoogleSheets').item.json.message_content }}",
-            "conversation id": "={{ $('Set Data For GoogleSheets').item.json.message_content }}",
-            "interaction cost": "={{ $('Set Data For GoogleSheets').item.json.interaction_cost }}",
-            "metada ": "={{ $('Set Data For GoogleSheets').item.json.metadata }}",
-            "metadata_conversation": "={{ $('Set Data For GoogleSheets').item.json.metadata_conversation }}"
-          },
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "lead_id",
-              "displayName": "lead_id",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "ghl_id ",
-              "displayName": "ghl_id ",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "lead name",
-              "displayName": "lead name",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "cadence id",
-              "displayName": "cadence id",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "channel",
-              "displayName": "channel",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "message_type",
-              "displayName": "message_type",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "message_content",
-              "displayName": "message_content",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "conversation id",
-              "displayName": "conversation id",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "interaction cost",
-              "displayName": "interaction cost",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "metada ",
-              "displayName": "metada ",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "metadata_conversation",
-              "displayName": "metadata_conversation",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        1200,
-        180
-      ],
-      "id": "99c25a02-7df0-43d9-b226-f711911e8688",
-      "name": "Update AI RVM Channel Data Tracking2",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "yYukeXRMn04jG7x6",
-          "name": "Enrique IX Account"
-        }
-      }
-    },
-    {
-      "parameters": {
         "content": "# 2️⃣ AI Outreach Workflow GHL\n[![YouTube Video](https://raw.githubusercontent.com/Trejon-888/n8n-workflows/refs/heads/main/AI%20Outreach%20Workflow.png#full-width)](https://www.loom.com/share/936ca8f329bc423bbf5a2447cc635034?sid=156dd931-8d30-4f10-a06c-155e0e30dc21)\n\n# 3️⃣ Understanding AI Outreach Workflow N8N\n[![Loom Video](https://raw.githubusercontent.com/Trejon-888/n8n-workflows/refs/heads/main/N8N%20Outreach%20Workflow.png#full-width)](https://www.loom.com/share/acceecb27a134256a59d9b25d6ed91eb?sid=b2d10fe6-8cd9-4875-ba6f-727be2cfc6bb)\n\n# 4️⃣ Understanding AI Outreach Workflow RVM (DropCowboy SetUp)\n[![Loom Video](https://raw.githubusercontent.com/Trejon-888/n8n-workflows/refs/heads/main/Drop%20Cowboy%20Workflow.png#full-width)](https://www.loom.com/share/639e981afcab4e5b9c8192b9c45910d8?sid=5ce0c6ed-9a26-450a-bc79-53273e19ff98)\n\n",
         "height": 1360,
         "width": 620
@@ -3152,8 +2983,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1200,
-        380
+        1600,
+        360
       ],
       "id": "94c3ca47-6367-42cd-a500-25ac61a924e3",
       "name": "Update AI RVM Channel Data Tracking1",
@@ -3315,8 +3146,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1200,
-        600
+        1600,
+        580
       ],
       "id": "e30928b5-b7cd-438b-a8ee-5e6dfef7a70f",
       "name": "Update AI RVM Channel Data Tracking",
@@ -3411,7 +3242,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1200,
+        1580,
         60
       ],
       "id": "0bf6edbe-b5a5-466a-92a3-41e6455fe9a9",
@@ -3630,6 +3461,451 @@
           "name": "InfinitX Sheet Credential"
         }
       }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1160,
+        180
+      ],
+      "id": "d2a5f309-d40a-48b0-9ecb-fd5c4091a8f8",
+      "name": "Loop Over Items3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1160,
+        380
+      ],
+      "id": "b226621c-d724-4c0a-9c01-8734b52d0368",
+      "name": "Loop Over Items4"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1160,
+        600
+      ],
+      "id": "347afde0-5d33-462b-afac-5e5c4c56e43e",
+      "name": "Loop Over Items5"
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1400,
+        200
+      ],
+      "id": "6afcef97-dd0b-45c9-ada4-afd6761dd950",
+      "name": "Wait 2 minutes3",
+      "webhookId": "20e0ec57-be0a-4ea4-8ff1-aee402c1d283"
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1400,
+        400
+      ],
+      "id": "330739eb-af75-48f3-910a-4b48e5a6a2ca",
+      "name": "Wait 2 minutes4",
+      "webhookId": "20e0ec57-be0a-4ea4-8ff1-aee402c1d283"
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1400,
+        620
+      ],
+      "id": "1b0bb4cb-2756-401b-9a5d-468f1a64cf61",
+      "name": "Wait 2 minutes5",
+      "webhookId": "20e0ec57-be0a-4ea4-8ff1-aee402c1d283"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{YOUR GOOGLE SHEET ID RVM}}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 494391445,
+          "mode": "list",
+          "cachedResultName": "RVM Sent",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wjNAzM7rOu8DB0paFMYUxVBi-Q8Z10yDoaB2V44fPMM/edit#gid=494391445"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "lead_id": "={{ $('Set Data For GoogleSheets1').item.json.lead_id }}",
+            "ghl_id ": "={{ $('Set Data For GoogleSheets1').item.json.ghl_contact_id_cold }}",
+            "lead name": "={{ $('Set Data For GoogleSheets1').item.json.lead_name }}",
+            "cadence id": "={{ $('Set Data For GoogleSheets1').item.json.cadence_id }}",
+            "channel": "={{ $('Set Data For GoogleSheets1').item.json.channel }}",
+            "message_type": "={{ $('Set Data For GoogleSheets1').item.json.message_type }}",
+            "message_content": "={{ $('Set Data For GoogleSheets1').item.json.message_content }}",
+            "conversation id": "={{ $('Set Data For GoogleSheets1').item.json.message_content }}",
+            "interaction cost": "={{ $('Set Data For GoogleSheets1').item.json.interaction_cost }}",
+            "metada ": "={{ $('Set Data For GoogleSheets1').item.json.metadata }}",
+            "metadata_conversation": "={{ $('Set Data For GoogleSheets1').item.json.metadata_conversation }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "lead_id",
+              "displayName": "lead_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ghl_id ",
+              "displayName": "ghl_id ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "lead name",
+              "displayName": "lead name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "cadence id",
+              "displayName": "cadence id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "channel",
+              "displayName": "channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "message_type",
+              "displayName": "message_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "message_content",
+              "displayName": "message_content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "conversation id",
+              "displayName": "conversation id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "interaction cost",
+              "displayName": "interaction cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "metada ",
+              "displayName": "metada ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "metadata_conversation",
+              "displayName": "metadata_conversation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1600,
+        160
+      ],
+      "id": "e6d93b99-3d30-41fe-b0d4-354ef3346644",
+      "name": "Update AI RVM Channel Data Tracking2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yYukeXRMn04jG7x6",
+          "name": "Enrique IX Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dropcowboy.com/v1/rvm",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "team_id",
+              "value": "={{ $('Set Fields For RVM 1').item.json.team_id }}"
+            },
+            {
+              "name": "secret",
+              "value": "={{ $('Set Fields For RVM 1').item.json.secret }}"
+            },
+            {
+              "name": "brand_id",
+              "value": "={{ $('Set Fields For RVM 1').item.json[\"brand_id \"] }}"
+            },
+            {
+              "name": "voice_id",
+              "value": "=[Dropcowboy Voice ID]"
+            },
+            {
+              "name": "tts_body",
+              "value": "=Example: Hey, {{ $('Extract Contact Details').item.json.personalization.first_name }}, this is {Your Name} from {Business Name}. I'm reaching out again to business owners who are considering selling their business for reinvestment or retirement. I'd like to connect you with an Advisor for a free call to answer your questions and explore options for getting as much as possible for your business. Give me a text and we'll schedule a quick confirmation call then introduce you!"
+            },
+            {
+              "name": "phone_number",
+              "value": "={{ $('Set Account Fields').item.json.to_number }}"
+            },
+            {
+              "name": "foreign_id",
+              "value": "={{ $('Set Fields For RVM 1').item.json.foreign_id }}"
+            },
+            {
+              "name": "pool_id",
+              "value": "={{ $('Set Fields For RVM 1').item.json[\"pool_id \"] }}"
+            },
+            {
+              "name": "forwarding_number",
+              "value": "=[RVM Fowarding Number to AI Call]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        520,
+        -540
+      ],
+      "id": "25a1eb22-b324-42ed-a878-ad3fa86388af",
+      "name": "RVM 1 Sent AI"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dropcowboy.com/v1/rvm",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "team_id",
+              "value": "={{ $('Set Fields For RVM 2').item.json.team_id }}"
+            },
+            {
+              "name": "secret",
+              "value": "={{ $('Set Fields For RVM 2').item.json.secret }}"
+            },
+            {
+              "name": "brand_id",
+              "value": "={{ $('Set Fields For RVM 2').item.json[\"brand_id \"] }}"
+            },
+            {
+              "name": "voice_id",
+              "value": "[Dropcowboy Voice ID]"
+            },
+            {
+              "name": "tts_body",
+              "value": "=Example: {{ $('Extract Contact Details').item.json.personalization.first_name }}, {Your Name} again calling from {Business Name}. You've built something incredible and you deserve to get every dollar it's worth. Most business owners leave thirty to fourty percent on the table because they don't know how buyers really value companies. I'd like to connect you with an advisor who would like to help get you what you've earned. Shoot me a text and have a great day."
+            },
+            {
+              "name": "phone_number",
+              "value": "={{ $('Set Account Fields').item.json.to_number }}"
+            },
+            {
+              "name": "foreign_id",
+              "value": "={{ $('Set Fields For RVM 2').item.json.foreign_id }}"
+            },
+            {
+              "name": "pool_id",
+              "value": "={{ $('Set Fields For RVM 2').item.json[\"pool_id \"] }}"
+            },
+            {
+              "name": "forwarding_number",
+              "value": "[RVM Fowarding Number to AI Call]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        520,
+        -340
+      ],
+      "id": "b1214a11-c9c9-4ff1-bf8e-99534d092b82",
+      "name": "RVM 2 Sent AI"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dropcowboy.com/v1/rvm",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "team_id",
+              "value": "={{ $('Set Fields For RVM 3').item.json.team_id }}"
+            },
+            {
+              "name": "secret",
+              "value": "={{ $('Set Fields For RVM 3').item.json.secret }}"
+            },
+            {
+              "name": "brand_id",
+              "value": "={{ $('Set Fields For RVM 3').item.json[\"brand_id \"] }}"
+            },
+            {
+              "name": "voice_id",
+              "value": "[Dropcowboy Voice ID]"
+            },
+            {
+              "name": "tts_body",
+              "value": "=Example: {{ $('Extract Contact Details').item.json.personalization.first_name }}, {Your Name} from {Business Name} again. Your business could be worth more than you think with the right preparation and only if it's positioned right. Years of your effort and sacrifice created this value. Don't let poor preparation cost you hundreds of thousands.Please text me back and we'll connect you with an Advisor who will help you maximize what you've built."
+            },
+            {
+              "name": "phone_number",
+              "value": "={{ $('Set Account Fields').item.json.to_number }}"
+            },
+            {
+              "name": "foreign_id",
+              "value": "={{ $('Set Fields For RVM 3').item.json.foreign_id }}"
+            },
+            {
+              "name": "pool_id",
+              "value": "={{ $('Set Fields For RVM 3').item.json[\"pool_id \"] }}"
+            },
+            {
+              "name": "forwarding_number",
+              "value": "[RVM Fowarding Number to AI Call]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        520,
+        -140
+      ],
+      "id": "57e54bf3-c5cf-4d74-87ee-f6cf3e2da69f",
+      "name": "RVM 3 Sent AI"
+    },
+    {
+      "parameters": {
+        "content": "RVMs Sent by the AI \n\nhttps://www.loom.com/share/603238af8863486cab29bd9da074ac16?sid=a012dde0-1b28-4d16-b517-9c74bef4c4c1",
+        "height": 100,
+        "width": 540
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        320,
+        -680
+      ],
+      "id": "c1227db2-3f5b-4c9a-8386-72c68d015a58",
+      "name": "Sticky Note18"
+    },
+    {
+      "parameters": {
+        "content": "Dropcowboy SetUp:\n\nhttps://docs.google.com/document/d/1BfnYtVIQHcQA1zgCiKGjS6fWHO1IJoJ5_E9xlVWuAvE/edit?usp=sharing",
+        "height": 100,
+        "width": 540
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -200,
+        -480
+      ],
+      "id": "1c9ff979-73c9-4ff3-bb1b-d0adc6f67452",
+      "name": "Sticky Note19"
     }
   ],
   "pinData": {},
@@ -4284,7 +4560,7 @@
       "main": [
         [
           {
-            "node": "Update AI RVM Channel Data Tracking2",
+            "node": "Loop Over Items3",
             "type": "main",
             "index": 0
           }
@@ -4295,7 +4571,7 @@
       "main": [
         [
           {
-            "node": "Update AI RVM Channel Data Tracking1",
+            "node": "Loop Over Items4",
             "type": "main",
             "index": 0
           }
@@ -4306,11 +4582,113 @@
       "main": [
         [
           {
-            "node": "Update AI RVM Channel Data Tracking",
+            "node": "Loop Over Items5",
             "type": "main",
             "index": 0
           }
         ]
+      ]
+    },
+    "Loop Over Items3": {
+      "main": [
+        [
+          {
+            "node": "Update AI RVM Channel Data Tracking2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 2 minutes3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items4": {
+      "main": [
+        [
+          {
+            "node": "Update AI RVM Channel Data Tracking1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 2 minutes4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items5": {
+      "main": [
+        [
+          {
+            "node": "Update AI RVM Channel Data Tracking",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait 2 minutes5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 2 minutes3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 2 minutes4": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 2 minutes5": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RVM 2 Sent AI": {
+      "main": [
+        []
+      ]
+    },
+    "RVM 3 Sent AI": {
+      "main": [
+        []
+      ]
+    },
+    "RVM 1 Sent AI": {
+      "main": [
+        []
       ]
     }
   },
@@ -4318,7 +4696,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "bad8b411-be97-4719-b4aa-bb1b599bd967",
+  "versionId": "715be06e-27e5-4353-a661-3981180b6672",
   "meta": {
     "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
   },
