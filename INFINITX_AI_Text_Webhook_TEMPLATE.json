@@ -549,7 +549,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1080,
+        -1040,
         240
       ],
       "id": "e929a336-87a5-45c1-a691-f12518e6ffb2",
@@ -695,7 +695,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// This function will run once per item and returns the new item\nfunction processItem(item) {\n  try {\n    // Directly reference the Search Conversations GHL1 node to get the tags\n    const tags = $('Search Conversations GHL1').item.json.conversations[0].tags;\n    \n    // If no tags, return a default value\n    if (!tags || tags.length === 0) {\n      return {\n        json: {\n          leadDisposition: \"No tag found\"\n        }\n      };\n    }\n\n    // Define our possible lead disposition tags for both text and email formats\n    const leadTags = [\n      // Text format tags\n      \"hot lead (text)\",\n      \"warm lead (text)\",\n      \"scheduled (text)\",\n      \"not interested (text)\",\n      // Email format tags\n      \"hot lead (email)\",\n      \"warm lead (email)\",\n      \"scheduled (email)\",\n      \"not interested (email)\"\n    ];\n    \n    // Find the first matching lead tag\n    const foundTag = tags.find(tag => leadTags.includes(tag));\n    \n    // If no matching tag was found\n    if (!foundTag) {\n      return {\n        json: {\n          leadDisposition: \"No lead disposition tag found\"\n        }\n      };\n    }\n    \n    // Extract the actual disposition by removing both \" (text)\" and \" (email)\" from the end\n    const leadDisposition = foundTag\n      .replace(\" (text)\", \"\")\n      .replace(\" (email)\", \"\");\n    \n    // Return the processed item with just the lead disposition string\n    return {\n      json: {\n        leadDisposition: leadDisposition\n      }\n    };\n  } catch (error) {\n    // Handle any errors gracefully\n    return {\n      json: {\n        error: `Error processing tags: ${error.message}`,\n        leadDisposition: \"Error\"\n      }\n    };\n  }\n}\n\n// Return the processed item\nreturn processItem($input);"
+        "jsCode": "// This function will run once per item and returns the new item\nfunction processItem(item) {\n  try {\n    // Directly reference the Search Conversations GHL1 node to get the tags\n    const tags = $('Search Conversations GHL1').item.json.conversations[0].tags;\n    \n    // If no tags, return a default value\n    if (!tags || tags.length === 0) {\n      return {\n        json: {\n          leadDisposition: \"No tag found\"\n        }\n      };\n    }\n\n    // Define our possible lead disposition tags for both text and email formats\n    const leadTags = [\n      // Text format tags\n      \"hot lead (text)\",\n      \"warm lead (text)\",\n      \"scheduled (text)\",\n      \"not interested (text)\",\n      \"dnd (text)\",\n      // Email format tags\n      \"hot lead (email)\",\n      \"warm lead (email)\",\n      \"scheduled (email)\",\n      \"not interested (email)\"\n    ];\n    \n    // Find the first matching lead tag\n    const foundTag = tags.find(tag => leadTags.includes(tag));\n    \n    // If no matching tag was found\n    if (!foundTag) {\n      return {\n        json: {\n          leadDisposition: \"No lead disposition tag found\"\n        }\n      };\n    }\n    \n    // Extract the actual disposition by removing both \" (text)\" and \" (email)\" from the end\n    const leadDisposition = foundTag\n      .replace(\" (text)\", \"\")\n      .replace(\" (email)\", \"\");\n    \n    // Return the processed item with just the lead disposition string\n    return {\n      json: {\n        leadDisposition: leadDisposition\n      }\n    };\n  } catch (error) {\n    // Handle any errors gracefully\n    return {\n      json: {\n        error: `Error processing tags: ${error.message}`,\n        leadDisposition: \"Error\"\n      }\n    };\n  }\n}\n\n// Return the processed item\nreturn processItem($input);"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -1234,7 +1234,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=# Keep your responses 2 to 3 sentences max.\n\nThis is the previous conversation history: {{ $json.conversation_history }}\n\nThis is the most recent reply Message from the contact: {{ $('Set Placeholders').item.json['Message Body'] }}\n\nPlease reply to the user effectively. Your responses must be sly, short, and natural.",
+        "text": "=# Keep your responses 2 to 3 sentences max.\n\nThis is the previous conversation history: {{ $json.conversation_history }}\n\nThis is the most recent reply Message from the contact: {{ $('Set Placeholders').item.json['Message Body'] }}\n\n- Analyze deeply the conversation history and contact reply to evaluate your response.\n\nPlease reply to the user effectively. Your responses must be sly, short, and natural.",
         "options": {
           "systemMessage": "={{ PASTE YOUR AI TEXT GENERATED PROMPT - YOU GET THIS EMAILED TO YOU }}"
         }
@@ -1349,6 +1349,15 @@
               "id": "32371c92-de45-4cb1-8448-71637d6b0ed5",
               "leftValue": "={{ $('Extract Lead Disposition').item.json.leadDisposition }}",
               "rightValue": "not interested",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "840ec382-6ade-46bf-b217-e83689658863",
+              "leftValue": "={{ $('Extract Lead Disposition').item.json.leadDisposition }}",
+              "rightValue": "scheduled",
               "operator": {
                 "type": "string",
                 "operation": "contains"
@@ -1768,7 +1777,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "ea70b01d-fef4-444a-90de-3c566a87b5d9",
+  "versionId": "f543ded8-f332-409e-9097-1286d8d46bec",
   "meta": {
     "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
   },
