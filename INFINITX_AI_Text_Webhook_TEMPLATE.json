@@ -1234,7 +1234,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=# Keep your responses 2 to 3 sentences max.\n\nThis is the previous conversation history: {{ $json.conversation_history }}\n\nThis is the most recent reply Message from the contact: {{ $('Set Placeholders').item.json['Message Body'] }}\n\n- Analyze deeply the conversation history and contact reply to evaluate your response.\n\nPlease reply to the user effectively. Your responses must be sly, short, and natural.",
+        "text": "=# Keep your responses 2 to 3 sentences max.\n\nThis is the previous conversation history: {{ $('Code Parse Notes').item.json.conversation_history }}\n\nThis is the most recent reply Message from the contact: {{ $('Set Placeholders').item.json['Message Body'] }}\n\n- Analyze deeply the conversation history and contact reply to evaluate your response.\n\nPlease reply to the user effectively. Your responses must be sly, short, and natural.",
         "options": {
           "systemMessage": "={{ PASTE YOUR AI TEXT GENERATED PROMPT - YOU GET THIS EMAILED TO YOU }}"
         }
@@ -1777,8 +1777,9 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "f543ded8-f332-409e-9097-1286d8d46bec",
+  "versionId": "6a4f5a0a-481a-42ad-ab4e-1c6b41cc60e3",
   "meta": {
+    "templateCredsSetupCompleted": true,
     "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
   },
   "id": "4Ap2BhtdF2gtlCte",
