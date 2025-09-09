@@ -2571,7 +2571,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Cadence').id }}\",\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Text Cadence #'] }}\"\n    },\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Cadence Content').id }},\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Spintax Cadence Content'] }}\"\n    },\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Spintax Variant').id }},\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Spintax Text Variant'] }}\"\n    }\n   \n  ]\n}\n\n",
+        "jsonBody": "={\n  \"customFields\": [\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Cadence').id }}\",\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Text Cadence #'] }}\"\n    },\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Cadence Content').id }}\",\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Spintax Cadence Content'] }}\"\n    },\n    {\n      \"id\": \"{{ $('Get Custom Fields GHL Update Contact').item.json.customFields.find(f => f.name === 'AI Outreach Spintax Variant').id }}\",\n      \"field_value\": \"{{ $('SMS Cadence 1 Tracking').item.json['Spintax Text Variant'] }}\"\n    }\n   \n  ]\n}\n\n",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -3896,16 +3896,90 @@
       "parameters": {
         "content": "Dropcowboy SetUp:\n\nhttps://docs.google.com/document/d/1BfnYtVIQHcQA1zgCiKGjS6fWHO1IJoJ5_E9xlVWuAvE/edit?usp=sharing",
         "height": 100,
-        "width": 540
+        "width": 460
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -200,
+        -160,
         -480
       ],
       "id": "1c9ff979-73c9-4ff3-bb1b-d0adc6f67452",
       "name": "Sticky Note19"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "66ca8ec5-1444-4a99-b33a-63def6c7e47e",
+      "name": "Sticky Note20"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0840d336-9c0a-4bb2-ab50-f70dc4fbd560",
+      "name": "Sticky Note21"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "fa9fdc69-538b-48fa-aa6a-3cf8a9496ea1",
+      "name": "Sticky Note22"
+    },
+    {
+      "parameters": {
+        "content": "## Update Me With The Right Info !!!",
+        "height": 80,
+        "width": 250
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "9c87ea92-da2a-4b00-8858-ffc44cd71d61",
+      "name": "Sticky Note23"
+    },
+    {
+      "parameters": {
+        "content": "Important Reminder: Change SMS Spintax to Expression\n\nhttps://www.loom.com/share/40ff400c28364b5bbbfd5f01040de67c?sid=2fafd332-d410-4eab-b375-b239a0372b21",
+        "width": 420
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -120,
+        2080
+      ],
+      "typeVersion": 1,
+      "id": "95840302-272f-4d30-93d5-a11e2ee51559",
+      "name": "Sticky Note24"
     }
   ],
   "pinData": {},
@@ -4696,7 +4770,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "715be06e-27e5-4353-a661-3981180b6672",
+  "versionId": "a0813947-7083-4c9c-939f-24d445217447",
   "meta": {
     "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
   },
